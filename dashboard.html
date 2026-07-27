@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Dashboard — CodeForge Pro</title>
+  <meta name="description" content="Your CodeForge Pro workspace — see every project, task, and report in one place." />
+  <meta name="author" content="CodeForge Pro" />
+  <link rel="canonical" href="https://www.codeforgepro.example/dashboard.html" />
+
+  <!-- App pages are kept out of the index -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0d10'/%3E%3Cpath d='M9 22 L16 8 L23 22' stroke='%23ff6a39' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Dashboard app-shell styles -->
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body class="app-body">
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+
+    <!-- ============================= SIDEBAR ============================= -->
+    <aside class="sidebar-forge offcanvas-lg offcanvas-start" tabindex="-1" id="sidebarForge" aria-labelledby="sidebarForgeLabel">
+      <div class="sidebar-head">
+        <a class="brand-mark" href="index.html">
+          <span class="glyph" aria-hidden="true"><i class="bi bi-triangle-fill"></i></span>
+          CodeForge&nbsp;Pro
+        </a>
+        <button type="button" class="btn-close btn-close-white d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#sidebarForge" aria-label="Close sidebar"></button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Workspace">
+        <p class="sidebar-nav-label">Workspace</p>
+        <a class="sidebar-link active" href="dashboard.html" aria-current="page">
+          <i class="bi bi-grid-1x2" aria-hidden="true"></i> Dashboard
+        </a>
+        <a class="sidebar-link" href="projects.html">
+          <i class="bi bi-kanban" aria-hidden="true"></i> Projects
+        </a>
+        <a class="sidebar-link" href="tasks.html">
+          <i class="bi bi-check2-square" aria-hidden="true"></i> Tasks
+        </a>
+        <a class="sidebar-link" href="calendar.html">
+          <i class="bi bi-calendar3" aria-hidden="true"></i> Calendar
+        </a>
+        <a class="sidebar-link" href="notes.html">
+          <i class="bi bi-journal-text" aria-hidden="true"></i> Notes
+        </a>
+        <a class="sidebar-link" href="analytics.html">
+          <i class="bi bi-bar-chart-line" aria-hidden="true"></i> Analytics
+        </a>
+
+        <p class="sidebar-nav-label">Learn &amp; grow</p>
+        <a class="sidebar-link" href="learning-hub.html">
+          <i class="bi bi-mortarboard" aria-hidden="true"></i> Learning Hub
+        </a>
+        <a class="sidebar-link" href="resources.html">
+          <i class="bi bi-life-preserver" aria-hidden="true"></i> Resources
+        </a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <a class="sidebar-link" href="help.html">
+          <i class="bi bi-question-circle" aria-hidden="true"></i> Help Center
+        </a>
+        <div class="sidebar-user">
+          <div class="avatar-forge" aria-hidden="true">JD</div>
+          <div class="sidebar-user-meta">
+            <span class="sidebar-user-name">Jordan Diaz</span>
+            <span class="sidebar-user-role">Northwind Labs</span>
+          </div>
+          <a href="login.html" class="sidebar-logout" aria-label="Log out">
+            <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============================= APP MAIN ============================= -->
+    <div class="app-main">
+
+      <!-- ============================= TOPBAR ============================= -->
+      <header class="topbar-forge">
+        <button class="sidebar-toggle-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarForge" aria-controls="sidebarForge" aria-label="Toggle sidebar">
+          <i class="bi bi-list fs-3" aria-hidden="true"></i>
+        </button>
+
+        <div class="topbar-search">
+          <i class="bi bi-search" aria-hidden="true"></i>
+          <input type="search" placeholder="Search projects, tasks, notes…" aria-label="Search workspace" />
+          <span class="topbar-kbd">⌘K</span>
+        </div>
+
+        <div class="topbar-actions">
+          <button type="button" class="topbar-icon-btn" aria-label="Notifications">
+            <i class="bi bi-bell" aria-hidden="true"></i>
+            <span class="topbar-dot" aria-hidden="true"></span>
+          </button>
+          <a href="create-project.html" class="btn-ember topbar-cta">
+            <i class="bi bi-plus-lg me-1" aria-hidden="true"></i> New project
+          </a>
+          <div class="avatar-forge topbar-avatar" aria-hidden="true">JD</div>
+        </div>
+      </header>
+
+      <main id="main-content" class="app-content">
+
+        <!-- ============================= WELCOME ============================= -->
+        <div class="content-head">
+          <p class="eyebrow dash-eyebrow">Sprint 24 · Week 3</p>
+          <h1 class="dash-heading">Good to see you, Jordan</h1>
+          <div class="temper-line dash-temper" aria-hidden="true"></div>
+          <p class="dash-sub">Here's where every project in flight stands this morning.</p>
+        </div>
+
+        <!-- ============================= KPI ROW ============================= -->
+        <div class="row g-4 kpi-row" role="list" aria-label="Workspace metrics">
+          <div class="col-sm-6 col-xl-3" role="listitem">
+            <div class="kpi-card">
+              <div class="kpi-icon"><i class="bi bi-kanban" aria-hidden="true"></i></div>
+              <div class="kpi-num" data-count-to="18">0</div>
+              <div class="kpi-label">Active projects</div>
+              <div class="kpi-trend up"><i class="bi bi-arrow-up-right" aria-hidden="true"></i> 3 this month</div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3" role="listitem">
+            <div class="kpi-card">
+              <div class="kpi-icon"><i class="bi bi-check2-square" aria-hidden="true"></i></div>
+              <div class="kpi-num" data-count-to="47">0</div>
+              <div class="kpi-label">Tasks due this week</div>
+              <div class="kpi-trend down"><i class="bi bi-arrow-down-right" aria-hidden="true"></i> 12 fewer</div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3" role="listitem">
+            <div class="kpi-card">
+              <div class="kpi-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></div>
+              <div class="kpi-num" data-count-to="92" data-suffix="%">0%</div>
+              <div class="kpi-label">Team velocity</div>
+              <div class="kpi-trend up"><i class="bi bi-arrow-up-right" aria-hidden="true"></i> 6% vs last sprint</div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3" role="listitem">
+            <div class="kpi-card">
+              <div class="kpi-icon"><i class="bi bi-exclamation-circle" aria-hidden="true"></i></div>
+              <div class="kpi-num" data-count-to="5">0</div>
+              <div class="kpi-label">Open issues</div>
+              <div class="kpi-trend flat"><i class="bi bi-dash" aria-hidden="true"></i> No change</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================= BOARD + ACTIVITY ============================= -->
+        <div class="row g-4 mt-1">
+          <div class="col-lg-7">
+            <div class="panel-forge">
+              <div class="panel-head">
+                <h2>Projects in flight</h2>
+                <a href="projects.html" class="panel-link">View all <i class="bi bi-arrow-up-right ms-1" aria-hidden="true"></i></a>
+              </div>
+
+              <div class="dash-preview no-shadow" role="img" aria-label="Preview of the CodeForge dashboard showing tasks grouped by status">
+                <div class="row g-3">
+                  <div class="col-md-4">
+                    <div class="dash-col">
+                      <div class="dash-col-title">Backlog</div>
+                      <div class="dash-card">Redesign settings page<span class="tag low d-block mt-1">Low</span></div>
+                      <div class="dash-card">Export to CSV<span class="tag low d-block mt-1">Low</span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="dash-col">
+                      <div class="dash-col-title">In progress</div>
+                      <div class="dash-card">Billing migration<span class="tag high d-block mt-1">High</span></div>
+                      <div class="dash-card">Mobile nav revamp<span class="tag mid d-block mt-1">Medium</span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="dash-col">
+                      <div class="dash-col-title">Shipped</div>
+                      <div class="dash-card">Team invites v2<span class="tag low d-block mt-1">Done</span></div>
+                      <div class="dash-card">Dark mode<span class="tag low d-block mt-1">Done</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-table">
+                <div class="project-row project-row-head" aria-hidden="true">
+                  <span>Project</span>
+                  <span>Owner</span>
+                  <span>Progress</span>
+                  <span>Priority</span>
+                </div>
+                <div class="project-row">
+                  <span class="project-name"><i class="bi bi-folder2 me-2" aria-hidden="true"></i> Billing migration</span>
+                  <span class="project-owner">Maya Alvarez</span>
+                  <span class="progress-track"><span class="progress-fill" style="width: 68%;"></span></span>
+                  <span class="tag high">High</span>
+                </div>
+                <div class="project-row">
+                  <span class="project-name"><i class="bi bi-folder2 me-2" aria-hidden="true"></i> Onboarding v2</span>
+                  <span class="project-owner">Daniel Kessler</span>
+                  <span class="progress-track"><span class="progress-fill" style="width: 41%;"></span></span>
+                  <span class="tag mid">Medium</span>
+                </div>
+                <div class="project-row">
+                  <span class="project-name"><i class="bi bi-folder2 me-2" aria-hidden="true"></i> Notifications center</span>
+                  <span class="project-owner">Rhea Thomas</span>
+                  <span class="progress-track"><span class="progress-fill" style="width: 12%;"></span></span>
+                  <span class="tag low">Queued</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="forge-console activity-console" role="img" aria-label="Recent build activity">
+              <div class="forge-console-bar" aria-hidden="true">
+                <span></span><span></span><span></span>
+                <span class="forge-console-title">sprint-24 / build log</span>
+              </div>
+              <div class="forge-console-body">
+                <div class="commit-row">
+                  <span class="commit-status done" aria-hidden="true"></span>
+                  <span class="commit-msg">Checkout flow — redesign shipped</span>
+                  <span class="commit-time">2m ago</span>
+                </div>
+                <div class="commit-row">
+                  <span class="commit-status done" aria-hidden="true"></span>
+                  <span class="commit-msg">API rate limiting — merged</span>
+                  <span class="commit-time">18m ago</span>
+                </div>
+                <div class="commit-row">
+                  <span class="commit-status building" aria-hidden="true"></span>
+                  <span class="commit-msg">Onboarding v2 — building</span>
+                  <span class="commit-time">running</span>
+                </div>
+                <div class="commit-row">
+                  <span class="commit-status queued" aria-hidden="true"></span>
+                  <span class="commit-msg">Notifications center — queued</span>
+                  <span class="commit-time">—</span>
+                </div>
+                <div class="commit-row">
+                  <span class="commit-status done" aria-hidden="true"></span>
+                  <span class="commit-msg">Dark mode — shipped</span>
+                  <span class="commit-time">1h ago</span>
+                </div>
+                <div class="console-progress" aria-hidden="true">
+                  <div class="console-progress-fill"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-forge upcoming-panel">
+              <div class="panel-head">
+                <h2>Upcoming</h2>
+                <a href="calendar.html" class="panel-link">Calendar <i class="bi bi-arrow-up-right ms-1" aria-hidden="true"></i></a>
+              </div>
+              <ul class="upcoming-list">
+                <li>
+                  <span class="upcoming-date">Jul 16</span>
+                  <span class="upcoming-title">Sprint review — Onboarding v2</span>
+                </li>
+                <li>
+                  <span class="upcoming-date">Jul 18</span>
+                  <span class="upcoming-title">Billing migration — staging cutover</span>
+                </li>
+                <li>
+                  <span class="upcoming-date">Jul 21</span>
+                  <span class="upcoming-title">Quarterly roadmap sync</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS bundle (needed for offcanvas sidebar UI only) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <!-- Dashboard animation -->
+  <script src="js/dashboard-animation.js"></script>
+</body>
+</html>

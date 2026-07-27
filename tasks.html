@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Tasks — CodeForge Pro</title>
+  <meta name="description" content="Track and organize your team's work in CodeForge Pro — backlog, in progress, in review, and done, all in one board." />
+  <meta name="keywords" content="task management, kanban board, CodeForge Pro, team tasks, project tracking" />
+  <meta name="author" content="CodeForge Pro" />
+  <link rel="canonical" href="https://www.codeforgepro.example/tasks.html" />
+  <meta name="robots" content="noindex, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CodeForge Pro" />
+  <meta property="og:title" content="Tasks — CodeForge Pro" />
+  <meta property="og:description" content="Backlog, in progress, in review, and done — your team's work in one board." />
+  <meta property="og:image" content="https://www.codeforgepro.example/assets/og-cover.jpg" />
+  <meta property="og:url" content="https://www.codeforgepro.example/tasks.html" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tasks — CodeForge Pro" />
+  <meta name="twitter:description" content="Backlog, in progress, in review, and done — your team's work in one board." />
+  <meta name="twitter:image" content="https://www.codeforgepro.example/assets/og-cover.jpg" />
+
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+  <!-- Favicon (same mark as Home) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0d10'/%3E%3Cpath d='M9 22 L16 8 L23 22' stroke='%23ff6a39' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+  <!-- Shared design system (unmodified) -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- App shell: sidebar / topbar (unmodified, reused from Dashboard) -->
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <!-- Tasks page styles -->
+  <link rel="stylesheet" href="css/tasks.css" />
+</head>
+<body class="app-body">
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+
+    <!-- ============================= SIDEBAR ============================= -->
+    <aside class="app-sidebar" id="appSidebar" aria-label="Primary application navigation">
+      <a class="brand-mark sidebar-brand" href="index.html">
+        <span class="glyph" aria-hidden="true"><i class="bi bi-triangle-fill"></i></span>
+        CodeForge&nbsp;Pro
+      </a>
+
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-label">Workspace</li>
+        <li><a href="dashboard.html" class="sidebar-link"><i class="bi bi-grid-1x2" aria-hidden="true"></i> Dashboard</a></li>
+        <li><a href="projects.html" class="sidebar-link"><i class="bi bi-kanban" aria-hidden="true"></i> Projects</a></li>
+        <li><a href="tasks.html" class="sidebar-link active" aria-current="page"><i class="bi bi-check2-square" aria-hidden="true"></i> Tasks <span class="badge-count">12</span></a></li>
+        <li><a href="calendar.html" class="sidebar-link"><i class="bi bi-calendar3" aria-hidden="true"></i> Calendar</a></li>
+        <li><a href="notes.html" class="sidebar-link"><i class="bi bi-journal-text" aria-hidden="true"></i> Notes</a></li>
+
+        <li class="sidebar-nav-label">Insights</li>
+        <li><a href="analytics.html" class="sidebar-link"><i class="bi bi-bar-chart-line" aria-hidden="true"></i> Analytics</a></li>
+        <li><a href="reports.html" class="sidebar-link"><i class="bi bi-file-earmark-text" aria-hidden="true"></i> Reports</a></li>
+
+        <li class="sidebar-nav-label">Account</li>
+        <li><a href="settings.html" class="sidebar-link"><i class="bi bi-gear" aria-hidden="true"></i> Settings</a></li>
+        <li><a href="help.html" class="sidebar-link"><i class="bi bi-question-circle" aria-hidden="true"></i> Help</a></li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <div class="avatar-forge" aria-hidden="true">MA</div>
+        <div>
+          <div class="sidebar-user-name">Maya Alvarez</div>
+          <div class="sidebar-user-role">Head of Product</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============================= MAIN ============================= -->
+    <div class="app-main">
+
+      <!-- ============================= TOPBAR ============================= -->
+      <header class="app-topbar">
+        <button class="topbar-icon-btn d-lg-none" type="button" aria-label="Toggle sidebar" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar">
+          <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
+
+        <div class="topbar-search">
+          <i class="bi bi-search" aria-hidden="true"></i>
+          <input type="search" placeholder="Search projects, tasks, notes…" aria-label="Search" />
+        </div>
+
+        <div class="d-flex align-items-center gap-2 ms-auto">
+          <button class="topbar-icon-btn" type="button" aria-label="Notifications">
+            <i class="bi bi-bell" aria-hidden="true"></i>
+            <span class="ping" aria-hidden="true"></span>
+          </button>
+          <a href="settings.html" class="topbar-icon-btn" aria-label="Account settings">
+            <i class="bi bi-gear" aria-hidden="true"></i>
+          </a>
+          <div class="avatar-forge d-none d-sm-flex" aria-hidden="true">MA</div>
+        </div>
+      </header>
+
+      <!-- ============================= CONTENT ============================= -->
+      <main id="main-content" class="app-content">
+
+        <div class="content-head">
+          <div>
+            <h1>Tasks</h1>
+            <div class="temper-line" aria-hidden="true"></div>
+            <p class="text-muted-custom mb-0">Everything your team is working on, grouped by status.</p>
+          </div>
+          <a href="create-project.html" class="btn-ember">
+            <i class="bi bi-plus-lg me-1" aria-hidden="true"></i> New task
+          </a>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="tasks-toolbar">
+          <div class="tasks-search">
+            <i class="bi bi-search" aria-hidden="true"></i>
+            <input type="search" placeholder="Filter tasks…" aria-label="Filter tasks" />
+          </div>
+
+          <button type="button" class="filter-chip">
+            <i class="bi bi-people" aria-hidden="true"></i> Assignee
+            <i class="bi bi-chevron-down" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="filter-chip">
+            <i class="bi bi-flag" aria-hidden="true"></i> Priority
+            <i class="bi bi-chevron-down" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="filter-chip">
+            <i class="bi bi-calendar3" aria-hidden="true"></i> Due date
+            <i class="bi bi-chevron-down" aria-hidden="true"></i>
+          </button>
+
+          <div class="view-toggle" role="group" aria-label="Board or list view">
+            <button type="button" class="view-toggle-btn active"><i class="bi bi-kanban" aria-hidden="true"></i> Board</button>
+            <button type="button" class="view-toggle-btn"><i class="bi bi-list-task" aria-hidden="true"></i> List</button>
+          </div>
+        </div>
+
+        <!-- ============================= BOARD ============================= -->
+        <div class="task-board" role="list" aria-label="Task board grouped by status">
+
+          <!-- Backlog -->
+          <section class="task-col" role="listitem" aria-labelledby="col-backlog">
+            <div class="task-col-head">
+              <span class="task-col-dot dot-backlog" aria-hidden="true"></span>
+              <span class="task-col-title" id="col-backlog">Backlog</span>
+              <span class="task-col-count">4</span>
+              <button type="button" class="task-col-add" aria-label="Add task to Backlog"><i class="bi bi-plus-lg" aria-hidden="true"></i></button>
+            </div>
+
+            <article class="task-card">
+              <div class="task-card-top">
+                <input type="checkbox" class="task-check" aria-label="Mark 'Redesign settings page' complete" />
+                <span class="task-card-title">Redesign settings page</span>
+              </div>
+              <div class="task-tag-row">
+                <span class="tag low">Design</span>
+              </div>
+              <div class="task-card-foot">
+                <span class="task-due"><i class="bi bi-calendar3" aria-hidden="true"></i> Aug 4</span>
+                <span class="avatar-stack">
+                  <span class="avatar-forge" aria-hidden="true">RT</span>
+                </span>
+              </div>
+            </article>
+
+            <article class="task-card">
+              <div class="task-card-top">
+                <input type="checkbox" class="task-check" aria-label="Mark 'Export data to CSV' complete" />
+                <span class="task-card-title">Export data to CSV</span>
+              </div>
+              <div class="task-tag-row">
+                <span class="tag low">Backend</span>
+              </div>
+              <div class="task-card-foot">
+                <span class="task-due"><i class="bi bi-calendar3" aria-hidden="true"></i> Aug 9</span>
+                <span class="avatar-stack">
+                  <span class="avatar-forge" aria-hidden="true">DK</span>
+                </span>
+              </div>
+            </article>
+
+            <article class="task-card">
+              <div class="task-card-top">
+                <input type="checkbox" class="task-check" aria-label="Mark 'Write API docs for webhooks' complete" />
+                <span class="task-card-title">Write API docs for webhooks</span>
+              </div>
+              <div class="task-tag-row">
+                <span class="tag low">Docs</span>
+              </div>
+              <div class="task-card-foot">
+                <span class="task-due"><i class="bi bi-calendar3" aria-hidden="true"></i> Aug 12</span>
+                <span class="avatar-stack">
+                  <span class="avatar-forge" aria-hidden="true">MA</span>
+                </span>
+              </div>
+            </article>
+
+            <article class="task-card">
+              <div class="task-card-top">
+                <input type="checkbox" class="task-check" aria-label="Mark 'Audit unused dependencies' complete" />
+                <span class="task-card-title">Audit unused dependencies</span>
+              </div>
+              <div class="task-tag-row">
+                <span class="tag low">Tech debt</span>
+              </div>
+              <div class="task-card-foot">
+                <span class="task-due"><i class="bi bi-calendar3" aria-hidden="true"></i> Aug 18</span>
+                <span class="avatar-stack">
+                  <span class="avatar-forge" aria-hidden="true">DK</span>
+                </span>
+              </div>
+            </article>
+
+            <button type="button" class="task-add-row w-100 mt-1">
+              <i class="bi bi-plus-lg" aria-hidden="true"></i> Add task
+            </button>
+          </section>
+
+          <!-- In Progress -->
+          <section class="task-col" role="listitem" aria-labelledby="col-progress">
+            <div class="task-col-head">
+              <span class="task-col-dot dot-progress" aria-hidden="true"></span>
+              <span class="task-col-title" id="col-progress">In progress</span>
+              <span class="task-col-count">3</span>
+              <button type="button" class="task-col-add" aria-label="Add task to In progress"><i class="bi bi-plus-lg" aria-hidden="true"></i></button>
+            </div>
+
+            <article class="task-card">
+              <div class="task-card-top">
+                <input type="checkbox" class="task-check" aria-label="Mark 'Billing migration' complete" />
+                <span class="task-card-title">Billing migration</span>
+              </div>
+              <div class="task-tag-row">
+                <span class="tag high">High</span>
+                <span class="tag low">Backend</span>
+              </div>
+              <div class="task-card-sub">
+                <span>5/8 subtasks</span>
+                <span class="task-mini-track"><span class="task-mini-fill" style="width: 62%;"></span></span>
+              </div>
+              <div class="task-card-foot">
+                <span class="task-due overdue"><i class="bi bi-exclamation-circle" aria-hidden="true"></i> Jul 14</span>
+                <span class="avatar-stack">
+                  <span class="avatar-forge" aria-hidden="true">DK</span>
+                  <span class="avatar-forge" aria-hidden="true">MA</span>
+                </span>
+              </div>
+            </article>
+
+            <article class="task-card">
+              <div class="task-card-top">
+                <input type="checkbox" class="task-check" aria-label="Mark 'Mobile nav revamp' complete" />
+                <span class="task-card-title">Mobile nav revamp</span>
+              </div>
+              <div class="task-tag-row">
+                <span class="tag mid">Medium</span>
+                <span class="tag low">Frontend</span>
+              </div>
+              <div class="task-card-sub">
+                <span>2/5 subtasks</span>
+                <span class="task-mini-track"><span class="task-mini-fill" style="width: 40%;"></span></span>
+              </div>
+              <div class="task-card-foot">
+                <span class="task-due"><i class="bi bi-calendar3" aria-hidden="true"></i> Jul 22</span>
+                <span class="avatar-stack">
+                  <span class="avatar-forge" aria-hidden="true">RT</span>
+                </span>
+              </div>
+            </article>
+
+            <article class="task-card">
+              <div class="task-card-top">
+                <input type="checkbox" class="task-check" aria-label="Mark 'Onboarding v2 build' complete" />
+                <span class="task-card-title">Onboarding v2 build</span>
+              </div>
+              <div class="task-tag-row">
+                <span class="tag mid">Medium</span>
+              </div>
+              <div class="task-card-sub">
+                <span>3/6 subtasks</span>
+                <span class="task-mini-track"><span class="task-mini-fill" style="width: 50%;"></span></span>
+              </div>
+              <div class="task-card-foot">
+                <span class="task-due"><i class="bi bi-calendar3" aria-hidden="true"></i> Jul 28</span>
+                <span class="avatar-stack">
+                  <span class="avatar-forge" aria-hidden="true">MA</span>
+                </span>
+              </div>
+            </article>
+
+            <button type="button" class="task-add-row w-100 mt-1">
+              <i class="bi bi-plus-lg" aria-hidden="true"></i> Add task
+            </button>
+          </section>
+
+          <!-- In Review -->
+          <section class="task-col" role="listitem" aria-labelledby="col-review">
+            <div class="task-col-head">
+              <span class="task-col-dot dot-review" aria-hidden="true"></span>
+              <span class="task-col-title" id="col-review">In review</span>
+              <span class="task-col-count">2</span>
+              <button type="button" class="task-col-add" aria-label="Add task to In review"><i class="bi bi-plus-lg" aria-hidden="true"></i></button>
+            </div>
+
+            <article class="task-card">
+              <div class="task-card-top">
+                <input type="checkbox" class="task-check" aria-label="Mark 'API rate limiting' complete" />
+                <span class="task-card-title">API rate limiting</span>
+              </div>
+              <div class="task-tag-row">
+                <span class="tag high">High</span>
+                <span class="tag low">Backend</span>
+              </div>
+              <div class="task-card-foot">
+                <span class="task-due"><i class="bi bi-calendar3" aria-hidden="true"></i> Jul 18</span>
+                <span class="avatar-stack">
+                  <span class="avatar-forge" aria-hidden="true">DK</span>
+                </span>
+              </div>
+            </article>
+
+            <article class="task-card">
+              <div class="task-card-top">
+                <input type="checkbox" class="task-check" aria-label="Mark 'Notification center UI' complete" />
+                <span class="task-card-title">Notification center UI</span>
+              </div>
+              <div class="task-tag-row">
+                <span class="tag low">Frontend</span>
+              </div>
+              <div class="task-card-foot">
+                <span class="task-due"><i class="bi bi-calendar3" aria-hidden="true"></i> Jul 20</span>
+                <span class="avatar-stack">
+                  <span class="avatar-forge" aria-hidden="true">RT</span>
+                  <span class="avatar-forge" aria-hidden="true">MA</span>
+                </span>
+              </div>
+            </article>
+
+            <button type="button" class="task-add-row w-100 mt-1">
+              <i class="bi bi-plus-lg" aria-hidden="true"></i> Add task
+            </button>
+          </section>
+
+          <!-- Done -->
+          <section class="task-col" role="listitem" aria-labelledby="col-done">
+            <div class="task-col-head">
+              <span class="task-col-dot dot-done" aria-hidden="true"></span>
+              <span class="task-col-title" id="col-done">Done</span>
+              <span class="task-col-count">3</span>
+              <button type="button" class="task-col-add" aria-label="Add task to Done"><i class="bi bi-plus-lg" aria-hidden="true"></i></button>
+            </div>
+
+            <article class="task-card is-done">
+              <div class="task-card-top">
+                <input type="checkbox" class="task-check" checked aria-label="Mark 'Checkout flow redesign' incomplete" />
+                <span class="task-card-title">Checkout flow redesign</span>
+              </div>
+              <div class="task-card-foot">
+                <span class="task-due"><i class="bi bi-check2" aria-hidden="true"></i> Shipped Jul 14</span>
+                <span class="avatar-stack">
+                  <span class="avatar-forge" aria-hidden="true">MA</span>
+                </span>
+              </div>
+            </article>
+
+            <article class="task-card is-done">
+              <div class="task-card-top">
+                <input type="checkbox" class="task-check" checked aria-label="Mark 'Team invites v2' incomplete" />
+                <span class="task-card-title">Team invites v2</span>
+              </div>
+              <div class="task-card-foot">
+                <span class="task-due"><i class="bi bi-check2" aria-hidden="true"></i> Shipped Jul 10</span>
+                <span class="avatar-stack">
+                  <span class="avatar-forge" aria-hidden="true">DK</span>
+                </span>
+              </div>
+            </article>
+
+            <article class="task-card is-done">
+              <div class="task-card-top">
+                <input type="checkbox" class="task-check" checked aria-label="Mark 'Dark mode' incomplete" />
+                <span class="task-card-title">Dark mode</span>
+              </div>
+              <div class="task-card-foot">
+                <span class="task-due"><i class="bi bi-check2" aria-hidden="true"></i> Shipped Jul 6</span>
+                <span class="avatar-stack">
+                  <span class="avatar-forge" aria-hidden="true">RT</span>
+                </span>
+              </div>
+            </article>
+          </section>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Mobile sidebar (Bootstrap offcanvas — declarative, no custom JS) -->
+  <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel" style="background: var(--ink-soft); width: 264px;">
+    <div class="offcanvas-header border-bottom" style="border-color: var(--border);">
+      <span class="brand-mark" id="mobileSidebarLabel">
+        <span class="glyph" aria-hidden="true"><i class="bi bi-triangle-fill"></i></span>
+        CodeForge&nbsp;Pro
+      </span>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-3">
+      <ul class="sidebar-nav">
+        <li><a href="dashboard.html" class="sidebar-link"><i class="bi bi-grid-1x2" aria-hidden="true"></i> Dashboard</a></li>
+        <li><a href="projects.html" class="sidebar-link"><i class="bi bi-kanban" aria-hidden="true"></i> Projects</a></li>
+        <li><a href="tasks.html" class="sidebar-link active"><i class="bi bi-check2-square" aria-hidden="true"></i> Tasks</a></li>
+        <li><a href="calendar.html" class="sidebar-link"><i class="bi bi-calendar3" aria-hidden="true"></i> Calendar</a></li>
+        <li><a href="notes.html" class="sidebar-link"><i class="bi bi-journal-text" aria-hidden="true"></i> Notes</a></li>
+        <li><a href="analytics.html" class="sidebar-link"><i class="bi bi-bar-chart-line" aria-hidden="true"></i> Analytics</a></li>
+        <li><a href="settings.html" class="sidebar-link"><i class="bi bi-gear" aria-hidden="true"></i> Settings</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS bundle (offcanvas toggle only — no custom logic) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <!-- UI animation only -->
+  <script src="js/tasks-animation.js"></script>
+</body>
+</html>

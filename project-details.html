@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Billing migration — Project details — CodeForge Pro</title>
+  <meta name="description" content="Track scope, tasks, activity, and files for the Billing migration project in your CodeForge Pro workspace." />
+  <meta name="author" content="CodeForge Pro" />
+  <link rel="canonical" href="https://www.codeforgepro.example/project-details.html" />
+
+  <!-- App pages are kept out of the index -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0d10'/%3E%3Cpath d='M9 22 L16 8 L23 22' stroke='%23ff6a39' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Project details page styles -->
+  <link rel="stylesheet" href="css/project-details.css" />
+</head>
+<body class="app-body">
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+
+    <!-- ============================= SIDEBAR ============================= -->
+    <aside class="sidebar-forge offcanvas-lg offcanvas-start" tabindex="-1" id="sidebarForge" aria-labelledby="sidebarForgeLabel">
+      <div class="sidebar-head">
+        <a class="brand-mark" href="index.html">
+          <span class="glyph" aria-hidden="true"><i class="bi bi-triangle-fill"></i></span>
+          CodeForge&nbsp;Pro
+        </a>
+        <button type="button" class="btn-close btn-close-white d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#sidebarForge" aria-label="Close sidebar"></button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Workspace">
+        <p class="sidebar-nav-label">Workspace</p>
+        <a class="sidebar-link" href="dashboard.html">
+          <i class="bi bi-grid-1x2" aria-hidden="true"></i> Dashboard
+        </a>
+        <a class="sidebar-link active" href="projects.html" aria-current="page">
+          <i class="bi bi-kanban" aria-hidden="true"></i> Projects
+        </a>
+        <a class="sidebar-link" href="tasks.html">
+          <i class="bi bi-check2-square" aria-hidden="true"></i> Tasks
+        </a>
+        <a class="sidebar-link" href="calendar.html">
+          <i class="bi bi-calendar3" aria-hidden="true"></i> Calendar
+        </a>
+        <a class="sidebar-link" href="notes.html">
+          <i class="bi bi-journal-text" aria-hidden="true"></i> Notes
+        </a>
+        <a class="sidebar-link" href="analytics.html">
+          <i class="bi bi-bar-chart-line" aria-hidden="true"></i> Analytics
+        </a>
+
+        <p class="sidebar-nav-label">Learn &amp; grow</p>
+        <a class="sidebar-link" href="learning-hub.html">
+          <i class="bi bi-mortarboard" aria-hidden="true"></i> Learning Hub
+        </a>
+        <a class="sidebar-link" href="resources.html">
+          <i class="bi bi-life-preserver" aria-hidden="true"></i> Resources
+        </a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <a class="sidebar-link" href="help.html">
+          <i class="bi bi-question-circle" aria-hidden="true"></i> Help Center
+        </a>
+        <div class="sidebar-user">
+          <div class="avatar-forge" aria-hidden="true">JD</div>
+          <div class="sidebar-user-meta">
+            <span class="sidebar-user-name">Jordan Diaz</span>
+            <span class="sidebar-user-role">Northwind Labs</span>
+          </div>
+          <a href="login.html" class="sidebar-logout" aria-label="Log out">
+            <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============================= APP MAIN ============================= -->
+    <div class="app-main">
+
+      <!-- ============================= TOPBAR ============================= -->
+      <header class="topbar-forge">
+        <button class="sidebar-toggle-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarForge" aria-controls="sidebarForge" aria-label="Toggle sidebar">
+          <i class="bi bi-list fs-3" aria-hidden="true"></i>
+        </button>
+
+        <div class="topbar-search">
+          <i class="bi bi-search" aria-hidden="true"></i>
+          <input type="search" placeholder="Search projects, tasks, notes…" aria-label="Search workspace" />
+          <span class="topbar-kbd">⌘K</span>
+        </div>
+
+        <div class="topbar-actions">
+          <button type="button" class="topbar-icon-btn" aria-label="Notifications">
+            <i class="bi bi-bell" aria-hidden="true"></i>
+            <span class="topbar-dot" aria-hidden="true"></span>
+          </button>
+          <a href="register.html" class="btn-ember topbar-cta">
+            <i class="bi bi-plus-lg me-1" aria-hidden="true"></i> New project
+          </a>
+          <div class="avatar-forge topbar-avatar" aria-hidden="true">JD</div>
+        </div>
+      </header>
+
+      <main id="main-content" class="app-content">
+
+        <!-- ============================= BREADCRUMB ============================= -->
+        <nav class="breadcrumb-forge" aria-label="Breadcrumb">
+          <a href="projects.html">Projects</a>
+          <i class="bi bi-chevron-right" aria-hidden="true"></i>
+          <span aria-current="page">Billing migration</span>
+        </nav>
+
+        <!-- ============================= PROJECT HEADER ============================= -->
+        <div class="project-header">
+          <div class="project-header-top">
+            <div class="project-title-row">
+              <span class="project-card-icon lg" aria-hidden="true"><i class="bi bi-folder2"></i></span>
+              <div>
+                <div class="project-title-tags">
+                  <span class="tag high">High priority</span>
+                  <span class="tag mid">In progress</span>
+                </div>
+                <h1 class="project-title">Billing migration</h1>
+              </div>
+            </div>
+
+            <div class="project-actions">
+              <button type="button" class="btn-ghost">
+                <i class="bi bi-share me-1" aria-hidden="true"></i> Share
+              </button>
+              <button type="button" class="btn-ghost">
+                <i class="bi bi-archive me-1" aria-hidden="true"></i> Archive
+              </button>
+              <button type="button" class="btn-ember">
+                <i class="bi bi-pencil me-1" aria-hidden="true"></i> Edit project
+              </button>
+            </div>
+          </div>
+
+          <p class="project-desc">
+            Move subscription billing onto the new metered-usage engine, including proration handling,
+            dunning emails, and a self-serve plan-change flow for customers.
+          </p>
+
+          <div class="project-meta-row">
+            <div class="meta-item">
+              <span class="meta-label">Owner</span>
+              <span class="meta-value"><span class="avatar-forge sm" aria-hidden="true">MA</span> Maya Alvarez</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Team</span>
+              <span class="meta-value avatar-stack" aria-label="Daniel Kessler, Rhea Thomas, Jordan Diaz">
+                <span class="avatar-forge sm" aria-hidden="true">DK</span>
+                <span class="avatar-forge sm" aria-hidden="true">RT</span>
+                <span class="avatar-forge sm" aria-hidden="true">JD</span>
+              </span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Due date</span>
+              <span class="meta-value"><i class="bi bi-calendar3 me-1" aria-hidden="true"></i> Jul 18, 2026</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Created</span>
+              <span class="meta-value"><i class="bi bi-clock-history me-1" aria-hidden="true"></i> Jun 2, 2026</span>
+            </div>
+          </div>
+
+          <div class="project-progress-lg">
+            <div class="project-progress-lg-head">
+              <span>Overall progress</span>
+              <span class="progress-pct">68%</span>
+            </div>
+            <span class="progress-track"><span class="progress-fill" style="width: 68%;"></span></span>
+          </div>
+        </div>
+
+        <!-- ============================= TAB BAR ============================= -->
+        <nav class="tab-bar" aria-label="Project sections">
+          <a href="#overview" class="tab-link active">Overview</a>
+          <a href="#tasks" class="tab-link">Tasks</a>
+          <a href="#activity" class="tab-link">Activity</a>
+          <a href="#files" class="tab-link">Files</a>
+        </nav>
+
+        <!-- ============================= OVERVIEW ============================= -->
+        <section id="overview" class="detail-section" aria-labelledby="overview-heading">
+          <h2 id="overview-heading" class="visually-hidden">Overview</h2>
+          <div class="row g-4">
+            <div class="col-sm-6 col-xl-3">
+              <div class="stat-mini">
+                <div class="stat-mini-icon"><i class="bi bi-check2-square" aria-hidden="true"></i></div>
+                <div class="stat-mini-num">17 / 25</div>
+                <div class="stat-mini-label">Tasks completed</div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="stat-mini">
+                <div class="stat-mini-icon"><i class="bi bi-hourglass-split" aria-hidden="true"></i></div>
+                <div class="stat-mini-num">3 days</div>
+                <div class="stat-mini-label">Until due date</div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="stat-mini">
+                <div class="stat-mini-icon"><i class="bi bi-people" aria-hidden="true"></i></div>
+                <div class="stat-mini-num">4</div>
+                <div class="stat-mini-label">Team members</div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="stat-mini">
+                <div class="stat-mini-icon"><i class="bi bi-exclamation-circle" aria-hidden="true"></i></div>
+                <div class="stat-mini-num">2</div>
+                <div class="stat-mini-label">Blocked tasks</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================= TASKS ============================= -->
+        <section id="tasks" class="detail-section" aria-labelledby="tasks-heading">
+          <div class="panel-forge">
+            <div class="panel-head">
+              <h2 id="tasks-heading">Tasks</h2>
+              <a href="tasks.html" class="panel-link">View all <i class="bi bi-arrow-up-right ms-1" aria-hidden="true"></i></a>
+            </div>
+
+            <ul class="task-list">
+              <li class="task-row done">
+                <span class="task-check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
+                <span class="task-name">Design proration calculation rules</span>
+                <span class="avatar-forge sm" aria-hidden="true">MA</span>
+                <span class="tag low">Done</span>
+              </li>
+              <li class="task-row done">
+                <span class="task-check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
+                <span class="task-name">Build dunning email templates</span>
+                <span class="avatar-forge sm" aria-hidden="true">RT</span>
+                <span class="tag low">Done</span>
+              </li>
+              <li class="task-row">
+                <span class="task-check" aria-hidden="true"></span>
+                <span class="task-name">Implement self-serve plan-change flow</span>
+                <span class="avatar-forge sm" aria-hidden="true">DK</span>
+                <span class="tag high">High</span>
+              </li>
+              <li class="task-row">
+                <span class="task-check" aria-hidden="true"></span>
+                <span class="task-name">Migrate legacy invoices to new schema</span>
+                <span class="avatar-forge sm" aria-hidden="true">JD</span>
+                <span class="tag mid">Medium</span>
+              </li>
+              <li class="task-row">
+                <span class="task-check" aria-hidden="true"></span>
+                <span class="task-name">QA proration edge cases</span>
+                <span class="avatar-forge sm" aria-hidden="true">MA</span>
+                <span class="tag low">Queued</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ============================= ACTIVITY ============================= -->
+        <section id="activity" class="detail-section" aria-labelledby="activity-heading">
+          <div class="forge-console activity-console" role="img" aria-label="Recent activity on the billing migration project">
+            <div class="forge-console-bar" aria-hidden="true">
+              <span></span><span></span><span></span>
+              <span class="forge-console-title">billing-migration / activity</span>
+            </div>
+            <div class="forge-console-body">
+              <div class="commit-row">
+                <span class="commit-status done" aria-hidden="true"></span>
+                <span class="commit-msg">Dunning email templates — merged</span>
+                <span class="commit-time">2h ago</span>
+              </div>
+              <div class="commit-row">
+                <span class="commit-status building" aria-hidden="true"></span>
+                <span class="commit-msg">Self-serve plan-change flow — in review</span>
+                <span class="commit-time">5h ago</span>
+              </div>
+              <div class="commit-row">
+                <span class="commit-status done" aria-hidden="true"></span>
+                <span class="commit-msg">Proration rules — approved by Maya Alvarez</span>
+                <span class="commit-time">1d ago</span>
+              </div>
+              <div class="commit-row">
+                <span class="commit-status queued" aria-hidden="true"></span>
+                <span class="commit-msg">QA edge cases — queued</span>
+                <span class="commit-time">—</span>
+              </div>
+              <div class="console-progress" aria-hidden="true">
+                <div class="console-progress-fill" style="width: 68%;"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================= FILES ============================= -->
+        <section id="files" class="detail-section" aria-labelledby="files-heading">
+          <div class="panel-forge">
+            <div class="panel-head">
+              <h2 id="files-heading">Files</h2>
+              <button type="button" class="panel-link bare">
+                <i class="bi bi-upload me-1" aria-hidden="true"></i> Upload
+              </button>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-sm-6 col-lg-4">
+                <div class="file-card">
+                  <span class="file-icon pdf" aria-hidden="true"><i class="bi bi-filetype-pdf"></i></span>
+                  <div class="file-meta">
+                    <span class="file-name">billing-migration-spec.pdf</span>
+                    <span class="file-sub">2.4 MB · Maya Alvarez</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4">
+                <div class="file-card">
+                  <span class="file-icon fig" aria-hidden="true"><i class="bi bi-vector-pen"></i></span>
+                  <div class="file-meta">
+                    <span class="file-name">plan-change-flow.fig</span>
+                    <span class="file-sub">8.1 MB · Rhea Thomas</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4">
+                <div class="file-card">
+                  <span class="file-icon sheet" aria-hidden="true"><i class="bi bi-filetype-xlsx"></i></span>
+                  <div class="file-meta">
+                    <span class="file-name">proration-test-matrix.xlsx</span>
+                    <span class="file-sub">640 KB · Daniel Kessler</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS bundle (needed for offcanvas sidebar UI only) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <!-- Project details page animation -->
+  <script src="js/project-details-animation.js"></script>
+</body>
+</html>

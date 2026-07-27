@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Analytics — CodeForge Pro</title>
+  <meta name="description" content="See velocity, cycle time, and team throughput across your CodeForge Pro workspace." />
+  <meta name="author" content="CodeForge Pro" />
+  <link rel="canonical" href="https://www.codeforgepro.example/analytics.html" />
+
+  <!-- App pages are kept out of the index -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0d10'/%3E%3Cpath d='M9 22 L16 8 L23 22' stroke='%23ff6a39' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Analytics page styles -->
+  <link rel="stylesheet" href="css/analytics.css" />
+</head>
+<body class="app-body">
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+
+    <!-- ============================= SIDEBAR ============================= -->
+    <aside class="sidebar-forge offcanvas-lg offcanvas-start" tabindex="-1" id="sidebarForge" aria-labelledby="sidebarForgeLabel">
+      <div class="sidebar-head">
+        <a class="brand-mark" href="index.html">
+          <span class="glyph" aria-hidden="true"><i class="bi bi-triangle-fill"></i></span>
+          CodeForge&nbsp;Pro
+        </a>
+        <button type="button" class="btn-close btn-close-white d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#sidebarForge" aria-label="Close sidebar"></button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Workspace">
+        <p class="sidebar-nav-label">Workspace</p>
+        <a class="sidebar-link" href="dashboard.html">
+          <i class="bi bi-grid-1x2" aria-hidden="true"></i> Dashboard
+        </a>
+        <a class="sidebar-link" href="projects.html">
+          <i class="bi bi-kanban" aria-hidden="true"></i> Projects
+        </a>
+        <a class="sidebar-link" href="tasks.html">
+          <i class="bi bi-check2-square" aria-hidden="true"></i> Tasks
+        </a>
+        <a class="sidebar-link" href="calendar.html">
+          <i class="bi bi-calendar3" aria-hidden="true"></i> Calendar
+        </a>
+        <a class="sidebar-link" href="notes.html">
+          <i class="bi bi-journal-text" aria-hidden="true"></i> Notes
+        </a>
+        <a class="sidebar-link active" href="analytics.html" aria-current="page">
+          <i class="bi bi-bar-chart-line" aria-hidden="true"></i> Analytics
+        </a>
+
+        <p class="sidebar-nav-label">Learn &amp; grow</p>
+        <a class="sidebar-link" href="learning-hub.html">
+          <i class="bi bi-mortarboard" aria-hidden="true"></i> Learning Hub
+        </a>
+        <a class="sidebar-link" href="resources.html">
+          <i class="bi bi-life-preserver" aria-hidden="true"></i> Resources
+        </a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <a class="sidebar-link" href="help.html">
+          <i class="bi bi-question-circle" aria-hidden="true"></i> Help Center
+        </a>
+        <div class="sidebar-user">
+          <div class="avatar-forge" aria-hidden="true">JD</div>
+          <div class="sidebar-user-meta">
+            <span class="sidebar-user-name">Jordan Diaz</span>
+            <span class="sidebar-user-role">Northwind Labs</span>
+          </div>
+          <a href="login.html" class="sidebar-logout" aria-label="Log out">
+            <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============================= APP MAIN ============================= -->
+    <div class="app-main">
+
+      <!-- ============================= TOPBAR ============================= -->
+      <header class="topbar-forge">
+        <button class="sidebar-toggle-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarForge" aria-controls="sidebarForge" aria-label="Toggle sidebar">
+          <i class="bi bi-list fs-3" aria-hidden="true"></i>
+        </button>
+
+        <div class="topbar-search">
+          <i class="bi bi-search" aria-hidden="true"></i>
+          <input type="search" placeholder="Search projects, tasks, notes…" aria-label="Search workspace" />
+          <span class="topbar-kbd">⌘K</span>
+        </div>
+
+        <div class="topbar-actions">
+          <button type="button" class="topbar-icon-btn" aria-label="Notifications">
+            <i class="bi bi-bell" aria-hidden="true"></i>
+            <span class="topbar-dot" aria-hidden="true"></span>
+          </button>
+          <a href="create-project.html" class="btn-ember topbar-cta">
+            <i class="bi bi-plus-lg me-1" aria-hidden="true"></i> New project
+          </a>
+          <div class="avatar-forge topbar-avatar" aria-hidden="true">JD</div>
+        </div>
+      </header>
+
+      <main id="main-content" class="app-content">
+
+        <!-- ============================= HEADING ============================= -->
+        <div class="content-head">
+          <p class="eyebrow dash-eyebrow">Last 30 days</p>
+          <h1 class="dash-heading">Analytics</h1>
+          <div class="temper-line dash-temper" aria-hidden="true"></div>
+          <p class="dash-sub">Throughput, cycle time, and where your team's effort is going.</p>
+        </div>
+
+        <!-- ============================= TOOLBAR ============================= -->
+        <div class="analytics-toolbar">
+          <div class="filter-chips" role="tablist" aria-label="Date range">
+            <button type="button" class="filter-chip" role="tab" aria-selected="false" data-range="7d">7 days</button>
+            <button type="button" class="filter-chip active" role="tab" aria-selected="true" data-range="30d">30 days</button>
+            <button type="button" class="filter-chip" role="tab" aria-selected="false" data-range="90d">90 days</button>
+          </div>
+          <button type="button" class="btn-ghost">
+            <i class="bi bi-download me-1" aria-hidden="true"></i> Export report
+          </button>
+        </div>
+
+        <!-- ============================= KPI ROW ============================= -->
+        <div class="row g-4 kpi-row" role="list" aria-label="Analytics metrics">
+          <div class="col-sm-6 col-xl-3" role="listitem">
+            <div class="kpi-card">
+              <div class="kpi-icon"><i class="bi bi-check2-square" aria-hidden="true"></i></div>
+              <div class="kpi-num" data-count-to="214">0</div>
+              <div class="kpi-label">Tasks completed</div>
+              <div class="kpi-trend up"><i class="bi bi-arrow-up-right" aria-hidden="true"></i> 18% vs last period</div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3" role="listitem">
+            <div class="kpi-card">
+              <div class="kpi-icon"><i class="bi bi-hourglass-split" aria-hidden="true"></i></div>
+              <div class="kpi-num" data-count-to="2.4" data-suffix="d">0d</div>
+              <div class="kpi-label">Avg. cycle time</div>
+              <div class="kpi-trend up"><i class="bi bi-arrow-down-right" aria-hidden="true"></i> 0.6d faster</div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3" role="listitem">
+            <div class="kpi-card">
+              <div class="kpi-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></div>
+              <div class="kpi-num" data-count-to="92" data-suffix="%">0%</div>
+              <div class="kpi-label">Team velocity</div>
+              <div class="kpi-trend up"><i class="bi bi-arrow-up-right" aria-hidden="true"></i> 6% vs last sprint</div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3" role="listitem">
+            <div class="kpi-card">
+              <div class="kpi-icon"><i class="bi bi-people" aria-hidden="true"></i></div>
+              <div class="kpi-num" data-count-to="11">0</div>
+              <div class="kpi-label">Active contributors</div>
+              <div class="kpi-trend flat"><i class="bi bi-dash" aria-hidden="true"></i> No change</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================= CHARTS ROW ============================= -->
+        <div class="row g-4 mt-1">
+          <div class="col-lg-7">
+            <div class="panel-forge">
+              <div class="panel-head">
+                <h2>Tasks completed per week</h2>
+                <span class="panel-tag">Last 8 weeks</span>
+              </div>
+
+              <div class="bar-chart" role="img" aria-label="Bar chart of tasks completed over the last eight weeks, trending upward from 24 to 61">
+                <div class="bar-chart-bar" style="--bar-h: 38%;" data-value="24"></div>
+                <div class="bar-chart-bar" style="--bar-h: 46%;" data-value="29"></div>
+                <div class="bar-chart-bar" style="--bar-h: 52%;" data-value="33"></div>
+                <div class="bar-chart-bar" style="--bar-h: 61%;" data-value="39"></div>
+                <div class="bar-chart-bar" style="--bar-h: 70%;" data-value="44"></div>
+                <div class="bar-chart-bar" style="--bar-h: 66%;" data-value="42"></div>
+                <div class="bar-chart-bar" style="--bar-h: 88%;" data-value="56"></div>
+                <div class="bar-chart-bar highlight" style="--bar-h: 96%;" data-value="61"></div>
+              </div>
+              <div class="bar-chart-labels">
+                <span>W1</span><span>W2</span><span>W3</span><span>W4</span>
+                <span>W5</span><span>W6</span><span>W7</span><span>W8</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="panel-forge donut-panel">
+              <div class="panel-head">
+                <h2>Task status mix</h2>
+                <span class="panel-tag">214 total</span>
+              </div>
+
+              <div class="donut-wrap">
+                <div class="donut-chart" role="img" aria-label="Donut chart: 54 percent shipped, 27 percent in progress, 12 percent queued, 7 percent blocked">
+                  <div class="donut-center">
+                    <span class="donut-center-num">214</span>
+                    <span class="donut-center-label">tasks</span>
+                  </div>
+                </div>
+
+                <ul class="legend-list">
+                  <li><span class="legend-dot ember" aria-hidden="true"></span> Shipped <span class="legend-pct">54%</span></li>
+                  <li><span class="legend-dot amber" aria-hidden="true"></span> In progress <span class="legend-pct">27%</span></li>
+                  <li><span class="legend-dot muted" aria-hidden="true"></span> Queued <span class="legend-pct">12%</span></li>
+                  <li><span class="legend-dot faint" aria-hidden="true"></span> Blocked <span class="legend-pct">7%</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================= VELOCITY + CONTRIBUTORS ============================= -->
+        <div class="row g-4 mt-1">
+          <div class="col-lg-6">
+            <div class="panel-forge">
+              <div class="panel-head">
+                <h2>Velocity by project</h2>
+                <a href="projects.html" class="panel-link">View all <i class="bi bi-arrow-up-right ms-1" aria-hidden="true"></i></a>
+              </div>
+
+              <ul class="velocity-list">
+                <li class="velocity-row">
+                  <span class="velocity-name">Billing migration</span>
+                  <span class="progress-track"><span class="progress-fill" style="width: 82%;"></span></span>
+                  <span class="velocity-val">82%</span>
+                </li>
+                <li class="velocity-row">
+                  <span class="velocity-name">Onboarding v2</span>
+                  <span class="progress-track"><span class="progress-fill" style="width: 64%;"></span></span>
+                  <span class="velocity-val">64%</span>
+                </li>
+                <li class="velocity-row">
+                  <span class="velocity-name">Mobile nav revamp</span>
+                  <span class="progress-track"><span class="progress-fill" style="width: 58%;"></span></span>
+                  <span class="velocity-val">58%</span>
+                </li>
+                <li class="velocity-row">
+                  <span class="velocity-name">API rate limiting</span>
+                  <span class="progress-track"><span class="progress-fill" style="width: 45%;"></span></span>
+                  <span class="velocity-val">45%</span>
+                </li>
+                <li class="velocity-row">
+                  <span class="velocity-name">Notifications center</span>
+                  <span class="progress-track"><span class="progress-fill" style="width: 21%;"></span></span>
+                  <span class="velocity-val">21%</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="panel-forge">
+              <div class="panel-head">
+                <h2>Top contributors</h2>
+                <span class="panel-tag">This period</span>
+              </div>
+
+              <div class="contributors-table">
+                <div class="contributor-row">
+                  <span class="contributor-who"><span class="avatar-forge sm" aria-hidden="true">MA</span> Maya Alvarez</span>
+                  <span class="contributor-num">58 tasks</span>
+                  <span class="trend-pill up"><i class="bi bi-arrow-up-right" aria-hidden="true"></i> 12%</span>
+                </div>
+                <div class="contributor-row">
+                  <span class="contributor-who"><span class="avatar-forge sm" aria-hidden="true">DK</span> Daniel Kessler</span>
+                  <span class="contributor-num">47 tasks</span>
+                  <span class="trend-pill up"><i class="bi bi-arrow-up-right" aria-hidden="true"></i> 6%</span>
+                </div>
+                <div class="contributor-row">
+                  <span class="contributor-who"><span class="avatar-forge sm" aria-hidden="true">RT</span> Rhea Thomas</span>
+                  <span class="contributor-num">41 tasks</span>
+                  <span class="trend-pill flat"><i class="bi bi-dash" aria-hidden="true"></i> 0%</span>
+                </div>
+                <div class="contributor-row">
+                  <span class="contributor-who"><span class="avatar-forge sm" aria-hidden="true">JD</span> Jordan Diaz</span>
+                  <span class="contributor-num">33 tasks</span>
+                  <span class="trend-pill down"><i class="bi bi-arrow-down-right" aria-hidden="true"></i> 4%</span>
+                </div>
+                <div class="contributor-row">
+                  <span class="contributor-who"><span class="avatar-forge sm" aria-hidden="true">SP</span> Sam Park</span>
+                  <span class="contributor-num">35 tasks</span>
+                  <span class="trend-pill up"><i class="bi bi-arrow-up-right" aria-hidden="true"></i> 21%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS bundle (needed for offcanvas sidebar UI only) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <!-- Analytics page animation -->
+  <script src="js/analytics-animation.js"></script>
+</body>
+</html>

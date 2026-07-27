@@ -1,0 +1,259 @@
+/* ==========================================================================
+   CodeForge Pro — Tasks
+   Extends tokens from css/style.css and reuses the app shell (sidebar,
+   topbar, panel, tag, avatar classes) from css/dashboard.css — both loaded
+   before this file. Adds: filter toolbar, kanban board, task cards.
+   ========================================================================== */
+
+/* ---------- Toolbar ---------- */
+.tasks-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.6rem;
+}
+
+.tasks-search {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+  max-width: 320px;
+}
+.tasks-search i {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-faint);
+  font-size: 0.85rem;
+}
+.tasks-search input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-size: 0.86rem;
+  padding: 0.55rem 0.9rem 0.55rem 2.3rem;
+  border-radius: var(--radius-sm);
+}
+.tasks-search input::placeholder { color: var(--text-faint); }
+.tasks-search input:focus {
+  outline: none;
+  border-color: var(--ember);
+  box-shadow: 0 0 0 3px var(--ember-soft);
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-sm);
+}
+.filter-chip i { font-size: 0.78rem; color: var(--text-faint); }
+.filter-chip:hover { border-color: var(--border-strong); color: var(--text-primary); }
+
+.view-toggle {
+  display: inline-flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 3px;
+  margin-left: auto;
+}
+.view-toggle-btn {
+  border: none;
+  background: transparent;
+  color: var(--text-faint);
+  font-size: 0.85rem;
+  padding: 0.42rem 0.8rem;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.view-toggle-btn.active {
+  background: var(--surface-raised);
+  color: var(--text-primary);
+}
+
+/* ---------- Board ---------- */
+.task-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(260px, 1fr));
+  gap: 1.1rem;
+  align-items: start;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.task-col {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  min-width: 260px;
+}
+
+.task-col-head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+  padding: 0 0.2rem;
+}
+.task-col-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.dot-backlog { background: var(--steel-light); }
+.dot-progress { background: var(--amber); }
+.dot-review { background: #9d7bff; }
+.dot-done { background: #3fbf7f; }
+
+.task-col-title {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  flex: 1;
+}
+.task-col-count {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  background: var(--surface-raised);
+  border-radius: 20px;
+  padding: 0.1rem 0.5rem;
+}
+.task-col-add {
+  background: none;
+  border: none;
+  color: var(--text-faint);
+  font-size: 0.9rem;
+}
+.task-col-add:hover { color: var(--ember); }
+
+/* ---------- Task card ---------- */
+.task-card {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.task-card:hover {
+  border-color: rgba(255, 106, 57, 0.35);
+  transform: translateY(-2px);
+}
+.task-card:last-child { margin-bottom: 0; }
+
+.task-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+.task-check {
+  width: 17px; height: 17px;
+  border-radius: 5px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  accent-color: var(--ember);
+}
+.task-card-title {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  line-height: 1.4;
+}
+.task-card.is-done .task-card-title {
+  color: var(--text-faint);
+  text-decoration: line-through;
+}
+
+.task-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.task-card-sub {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-faint);
+}
+.task-mini-track {
+  flex: 1;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--surface);
+  overflow: hidden;
+}
+.task-mini-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--ember), var(--amber));
+}
+
+.task-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.task-due {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-faint);
+}
+.task-due.overdue { color: var(--ember); }
+.task-due i { font-size: 0.75rem; }
+
+/* ---------- Ghost / add-task row ---------- */
+.task-add-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--text-faint);
+  font-size: 0.85rem;
+  padding: 0.6rem 0.4rem;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--border-strong);
+}
+.task-add-row:hover { color: var(--ember); border-color: rgba(255, 106, 57, 0.4); }
+.task-add-row i { font-size: 0.85rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1199.98px) {
+  .task-board { grid-template-columns: repeat(4, minmax(240px, 1fr)); }
+}
+
+@media (max-width: 991.98px) {
+  .task-board {
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    grid-auto-columns: 78vw;
+  }
+  .tasks-toolbar { gap: 0.6rem; }
+  .view-toggle { margin-left: 0; order: 10; width: 100%; }
+}
+
+@media (max-width: 575.98px) {
+  .task-board { grid-auto-columns: 86vw; }
+  .tasks-search { max-width: none; }
+}

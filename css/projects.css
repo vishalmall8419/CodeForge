@@ -1,0 +1,413 @@
+/* ==========================================================================
+   CodeForge Pro — Projects page
+   Extends style.css design tokens (--ink, --ember, --surface, etc).
+   Self-contained: includes the shared app-shell component styles
+   (also used on dashboard.html) plus projects-specific additions.
+   ========================================================================== */
+
+.app-body {
+  overflow-x: hidden;
+}
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--ink);
+}
+
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+.sidebar-forge {
+  width: 264px;
+  flex-shrink: 0;
+  background: var(--ink-soft);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 1.4rem 1.1rem;
+}
+
+.sidebar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.3rem 1.4rem;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.sidebar-nav-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 1.3rem 0.6rem 0.6rem;
+}
+.sidebar-nav-label:first-child { margin-top: 0.4rem; }
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.62rem 0.7rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.sidebar-link i { font-size: 1rem; width: 1.1rem; text-align: center; flex-shrink: 0; }
+.sidebar-link:hover { background: var(--surface); color: var(--text-primary); }
+.sidebar-link.active {
+  background: var(--ember-soft);
+  color: var(--ember);
+}
+
+.sidebar-foot {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.sidebar-user {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem;
+  margin-top: 0.6rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.sidebar-user-meta {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+.sidebar-user-name {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sidebar-user-role {
+  font-size: 0.72rem;
+  color: var(--text-faint);
+}
+.sidebar-logout {
+  color: var(--text-faint);
+  font-size: 1.05rem;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+.sidebar-logout:hover { color: var(--ember); }
+
+@media (min-width: 992px) {
+  .sidebar-forge.offcanvas-lg {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+}
+
+/* ==========================================================================
+   App main / topbar
+   ========================================================================== */
+.app-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar-forge {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.6rem;
+  background: rgba(11, 13, 16, 0.72);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-toggle-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+}
+
+.topbar-search {
+  flex: 1;
+  max-width: 420px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.9rem;
+}
+.topbar-search i { color: var(--text-faint); }
+.topbar-search input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 0.88rem;
+}
+.topbar-search input::placeholder { color: var(--text-faint); }
+.topbar-search input:focus { outline: none; }
+.topbar-kbd {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+}
+
+.topbar-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.topbar-icon-btn {
+  position: relative;
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  color: var(--text-muted);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.topbar-icon-btn:hover { border-color: var(--ember); color: var(--ember); }
+.topbar-dot {
+  position: absolute;
+  top: 7px; right: 8px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--ember);
+  box-shadow: 0 0 0 2px var(--ink-soft);
+}
+
+.topbar-cta { padding: 0.55rem 1.1rem; font-size: 0.86rem; }
+
+.topbar-avatar { width: 34px; height: 34px; font-size: 0.72rem; }
+
+/* ==========================================================================
+   Content
+   ========================================================================== */
+.app-content {
+  padding: 2.2rem 1.6rem 3.5rem;
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.content-head { margin-bottom: 1.8rem; }
+.dash-eyebrow { margin-bottom: 0.5rem; }
+.dash-heading { font-size: clamp(1.7rem, 2.6vw, 2.1rem); }
+.dash-temper { margin: 0.9rem 0 1.1rem; }
+.dash-sub { color: var(--text-muted); font-size: 0.96rem; max-width: 520px; }
+
+/* ==========================================================================
+   Toolbar
+   ========================================================================== */
+.projects-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.filter-chip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  font-weight: 500;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+.filter-chip:hover { border-color: var(--border-strong); color: var(--text-primary); }
+.filter-chip.active {
+  background: var(--ember-soft);
+  border-color: rgba(255, 106, 57, 0.5);
+  color: var(--ember);
+}
+.filter-chip:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+.toolbar-right { flex-shrink: 0; }
+
+.sort-select-forge {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-size: 0.84rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-sm);
+}
+.sort-select-forge:focus {
+  outline: none;
+  border-color: var(--ember);
+}
+
+/* ==========================================================================
+   Project cards
+   ========================================================================== */
+.project-card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  height: 100%;
+  color: var(--text-primary);
+  transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+}
+.project-card:hover {
+  border-color: rgba(255, 106, 57, 0.4);
+  transform: translateY(-4px);
+  background: var(--surface-raised);
+  color: var(--text-primary);
+}
+
+.project-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.project-card-icon {
+  width: 38px; height: 38px;
+  border-radius: 9px;
+  background: var(--ember-soft);
+  color: var(--ember);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.project-card h3 { font-size: 1.02rem; margin-bottom: 0.5rem; }
+.project-card p {
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  margin-bottom: 1.3rem;
+  min-height: 2.6em;
+}
+
+.project-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1.3rem;
+}
+.progress-track {
+  flex: 1;
+  height: 6px;
+  background: var(--surface-raised);
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+}
+.progress-fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--ember), var(--amber));
+  border-radius: 4px;
+}
+.progress-pct {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-faint);
+  flex-shrink: 0;
+}
+
+.project-card-foot {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border);
+}
+
+.avatar-stack { display: flex; }
+.avatar-forge.sm {
+  width: 26px;
+  height: 26px;
+  font-size: 0.64rem;
+  border: 2px solid var(--surface);
+  margin-left: -8px;
+}
+.avatar-stack .avatar-forge.sm:first-child { margin-left: 0; }
+
+.project-card-meta {
+  font-size: 0.76rem;
+  color: var(--text-faint);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.project-card-meta i { font-size: 0.8rem; }
+
+/* ==========================================================================
+   Load more
+   ========================================================================== */
+.load-more-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+/* ==========================================================================
+   Responsive tweaks
+   ========================================================================== */
+@media (max-width: 991.98px) {
+  .sidebar-forge {
+    width: 264px;
+    background: var(--ink-soft);
+    color: var(--text-primary);
+  }
+  .app-content { padding: 1.8rem 1.1rem 3rem; }
+  .topbar-forge { padding: 0.8rem 1.1rem; }
+  .topbar-search { display: none; }
+}
+
+@media (max-width: 575.98px) {
+  .projects-toolbar { flex-direction: column; align-items: stretch; }
+  .toolbar-right { width: 100%; }
+  .sort-select-forge { width: 100%; }
+}

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Your profile — CodeForge Pro</title>
+  <meta name="description" content="Manage your CodeForge Pro profile, security, notifications, and connected apps." />
+  <meta name="author" content="CodeForge Pro" />
+  <link rel="canonical" href="https://www.codeforgepro.example/profile.html" />
+
+  <!-- App pages are kept out of the index -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0d10'/%3E%3Cpath d='M9 22 L16 8 L23 22' stroke='%23ff6a39' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Profile page styles -->
+  <link rel="stylesheet" href="css/profile.css" />
+</head>
+<body class="app-body">
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+
+    <!-- ============================= SIDEBAR ============================= -->
+    <aside class="sidebar-forge offcanvas-lg offcanvas-start" tabindex="-1" id="sidebarForge" aria-labelledby="sidebarForgeLabel">
+      <div class="sidebar-head">
+        <a class="brand-mark" href="index.html">
+          <span class="glyph" aria-hidden="true"><i class="bi bi-triangle-fill"></i></span>
+          CodeForge&nbsp;Pro
+        </a>
+        <button type="button" class="btn-close btn-close-white d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#sidebarForge" aria-label="Close sidebar"></button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Workspace">
+        <p class="sidebar-nav-label">Workspace</p>
+        <a class="sidebar-link" href="dashboard.html">
+          <i class="bi bi-grid-1x2" aria-hidden="true"></i> Dashboard
+        </a>
+        <a class="sidebar-link" href="projects.html">
+          <i class="bi bi-kanban" aria-hidden="true"></i> Projects
+        </a>
+        <a class="sidebar-link" href="tasks.html">
+          <i class="bi bi-check2-square" aria-hidden="true"></i> Tasks
+        </a>
+        <a class="sidebar-link" href="calendar.html">
+          <i class="bi bi-calendar3" aria-hidden="true"></i> Calendar
+        </a>
+        <a class="sidebar-link" href="notes.html">
+          <i class="bi bi-journal-text" aria-hidden="true"></i> Notes
+        </a>
+        <a class="sidebar-link" href="analytics.html">
+          <i class="bi bi-bar-chart-line" aria-hidden="true"></i> Analytics
+        </a>
+
+        <p class="sidebar-nav-label">Learn &amp; grow</p>
+        <a class="sidebar-link" href="learning-hub.html">
+          <i class="bi bi-mortarboard" aria-hidden="true"></i> Learning Hub
+        </a>
+        <a class="sidebar-link" href="resources.html">
+          <i class="bi bi-life-preserver" aria-hidden="true"></i> Resources
+        </a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <a class="sidebar-link" href="help.html">
+          <i class="bi bi-question-circle" aria-hidden="true"></i> Help Center
+        </a>
+        <div class="sidebar-user">
+          <div class="avatar-forge" aria-hidden="true">JD</div>
+          <div class="sidebar-user-meta">
+            <span class="sidebar-user-name">Jordan Diaz</span>
+            <span class="sidebar-user-role">Northwind Labs</span>
+          </div>
+          <a href="login.html" class="sidebar-logout" aria-label="Log out">
+            <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============================= APP MAIN ============================= -->
+    <div class="app-main">
+
+      <!-- ============================= TOPBAR ============================= -->
+      <header class="topbar-forge">
+        <button class="sidebar-toggle-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarForge" aria-controls="sidebarForge" aria-label="Toggle sidebar">
+          <i class="bi bi-list fs-3" aria-hidden="true"></i>
+        </button>
+
+        <div class="topbar-search">
+          <i class="bi bi-search" aria-hidden="true"></i>
+          <input type="search" placeholder="Search projects, tasks, notes…" aria-label="Search workspace" />
+          <span class="topbar-kbd">⌘K</span>
+        </div>
+
+        <div class="topbar-actions">
+          <button type="button" class="topbar-icon-btn" aria-label="Notifications">
+            <i class="bi bi-bell" aria-hidden="true"></i>
+            <span class="topbar-dot" aria-hidden="true"></span>
+          </button>
+          <a href="register.html" class="btn-ember topbar-cta">
+            <i class="bi bi-plus-lg me-1" aria-hidden="true"></i> New project
+          </a>
+          <div class="avatar-forge topbar-avatar" aria-hidden="true">JD</div>
+        </div>
+      </header>
+
+      <main id="main-content" class="app-content">
+
+        <!-- ============================= BREADCRUMB ============================= -->
+        <nav class="breadcrumb-forge" aria-label="Breadcrumb">
+          <a href="dashboard.html">Dashboard</a>
+          <i class="bi bi-chevron-right" aria-hidden="true"></i>
+          <span aria-current="page">Profile</span>
+        </nav>
+
+        <!-- ============================= PROFILE HEADER ============================= -->
+        <div class="profile-header">
+          <div class="profile-avatar-wrap">
+            <span class="avatar-forge xl" aria-hidden="true">JD</span>
+            <label for="avatarUpload" class="avatar-edit-btn" aria-label="Change profile photo">
+              <i class="bi bi-camera" aria-hidden="true"></i>
+            </label>
+            <input type="file" id="avatarUpload" accept="image/*" class="visually-hidden" />
+          </div>
+          <div class="profile-header-info">
+            <h1 class="profile-name">Jordan Diaz</h1>
+            <p class="profile-role">Product Manager · Northwind Labs</p>
+            <div class="profile-badges">
+              <span class="tag low"><i class="bi bi-patch-check me-1" aria-hidden="true"></i> Email verified</span>
+              <span class="tag mid">Team plan</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================= TAB BAR ============================= -->
+        <nav class="tab-bar" aria-label="Profile sections">
+          <a href="#personal" class="tab-link active">Personal info</a>
+          <a href="#security" class="tab-link">Security</a>
+          <a href="#notifications" class="tab-link">Notifications</a>
+          <a href="#connected" class="tab-link">Connected apps</a>
+          <a href="#danger" class="tab-link danger">Danger zone</a>
+        </nav>
+
+        <!-- ============================= PERSONAL INFO ============================= -->
+        <section id="personal" class="detail-section" aria-labelledby="personal-heading">
+          <div class="panel-forge">
+            <div class="panel-head">
+              <h2 id="personal-heading">Personal info</h2>
+            </div>
+
+            <form class="settings-form" novalidate>
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <div class="form-group-forge">
+                    <label for="fullName" class="form-label-forge">Full name</label>
+                    <div class="input-shell">
+                      <i class="bi bi-person" aria-hidden="true"></i>
+                      <input type="text" class="form-control-forge" id="fullName" value="Jordan Diaz" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group-forge">
+                    <label for="roleTitle" class="form-label-forge">Role / title</label>
+                    <div class="input-shell">
+                      <i class="bi bi-briefcase" aria-hidden="true"></i>
+                      <input type="text" class="form-control-forge" id="roleTitle" value="Product Manager" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group-forge">
+                    <label for="emailAddr" class="form-label-forge">Email address</label>
+                    <div class="input-shell">
+                      <i class="bi bi-envelope" aria-hidden="true"></i>
+                      <input type="email" class="form-control-forge" id="emailAddr" value="jordan@northwindlabs.com" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group-forge">
+                    <label for="companyName" class="form-label-forge">Company</label>
+                    <div class="input-shell">
+                      <i class="bi bi-building" aria-hidden="true"></i>
+                      <input type="text" class="form-control-forge" id="companyName" value="Northwind Labs" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group-forge">
+                <div class="d-flex align-items-center justify-content-between">
+                  <label for="bioField" class="form-label-forge">Bio</label>
+                  <span class="char-count" data-char-count-for="bioField">42 / 200</span>
+                </div>
+                <textarea class="form-control-forge textarea-forge" id="bioField" rows="3" maxlength="200">Product manager focused on billing and growth. Based in Austin.</textarea>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn-ghost">Cancel</button>
+                <button type="submit" class="btn-ember">Save changes</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- ============================= SECURITY ============================= -->
+        <section id="security" class="detail-section" aria-labelledby="security-heading">
+          <div class="panel-forge">
+            <div class="panel-head">
+              <h2 id="security-heading">Security</h2>
+            </div>
+
+            <form class="settings-form" novalidate>
+              <div class="row g-3">
+                <div class="col-sm-4">
+                  <div class="form-group-forge">
+                    <label for="currentPw" class="form-label-forge">Current password</label>
+                    <div class="input-shell">
+                      <i class="bi bi-lock" aria-hidden="true"></i>
+                      <input type="password" class="form-control-forge" id="currentPw" placeholder="••••••••" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group-forge">
+                    <label for="newPw" class="form-label-forge">New password</label>
+                    <div class="input-shell">
+                      <i class="bi bi-lock" aria-hidden="true"></i>
+                      <input type="password" class="form-control-forge" id="newPw" placeholder="••••••••" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group-forge">
+                    <label for="confirmPw" class="form-label-forge">Confirm new password</label>
+                    <div class="input-shell">
+                      <i class="bi bi-lock-fill" aria-hidden="true"></i>
+                      <input type="password" class="form-control-forge" id="confirmPw" placeholder="••••••••" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn-ember">Update password</button>
+              </div>
+            </form>
+
+            <div class="settings-divider"></div>
+
+            <div class="toggle-row">
+              <div>
+                <span class="toggle-row-title">Two-factor authentication</span>
+                <p class="toggle-row-sub">Require a verification code in addition to your password.</p>
+              </div>
+              <label class="switch-forge">
+                <input type="checkbox" checked />
+                <span class="switch-track" aria-hidden="true"></span>
+              </label>
+            </div>
+
+            <div class="settings-divider"></div>
+
+            <h3 class="settings-subhead">Active sessions</h3>
+            <ul class="session-list">
+              <li class="session-row">
+                <span class="session-icon"><i class="bi bi-laptop" aria-hidden="true"></i></span>
+                <span class="session-info">
+                  <span class="session-device">MacBook Pro · Chrome</span>
+                  <span class="session-meta">Austin, TX · Active now</span>
+                </span>
+                <span class="tag low">This device</span>
+              </li>
+              <li class="session-row">
+                <span class="session-icon"><i class="bi bi-phone" aria-hidden="true"></i></span>
+                <span class="session-info">
+                  <span class="session-device">iPhone 15 · CodeForge app</span>
+                  <span class="session-meta">Austin, TX · 2h ago</span>
+                </span>
+                <button type="button" class="btn-ghost sm">Revoke</button>
+              </li>
+              <li class="session-row">
+                <span class="session-icon"><i class="bi bi-display" aria-hidden="true"></i></span>
+                <span class="session-info">
+                  <span class="session-device">Windows PC · Edge</span>
+                  <span class="session-meta">Dallas, TX · 3d ago</span>
+                </span>
+                <button type="button" class="btn-ghost sm">Revoke</button>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ============================= NOTIFICATIONS ============================= -->
+        <section id="notifications" class="detail-section" aria-labelledby="notifications-heading">
+          <div class="panel-forge">
+            <div class="panel-head">
+              <h2 id="notifications-heading">Notifications</h2>
+            </div>
+
+            <div class="toggle-row">
+              <div>
+                <span class="toggle-row-title">Weekly email digest</span>
+                <p class="toggle-row-sub">A Monday-morning summary of what shipped and what's due.</p>
+              </div>
+              <label class="switch-forge">
+                <input type="checkbox" checked />
+                <span class="switch-track" aria-hidden="true"></span>
+              </label>
+            </div>
+            <div class="settings-divider"></div>
+            <div class="toggle-row">
+              <div>
+                <span class="toggle-row-title">Task reminders</span>
+                <p class="toggle-row-sub">Get a nudge when a task you own is due soon.</p>
+              </div>
+              <label class="switch-forge">
+                <input type="checkbox" checked />
+                <span class="switch-track" aria-hidden="true"></span>
+              </label>
+            </div>
+            <div class="settings-divider"></div>
+            <div class="toggle-row">
+              <div>
+                <span class="toggle-row-title">Mentions &amp; replies</span>
+                <p class="toggle-row-sub">Notify me when someone @mentions me in a comment.</p>
+              </div>
+              <label class="switch-forge">
+                <input type="checkbox" checked />
+                <span class="switch-track" aria-hidden="true"></span>
+              </label>
+            </div>
+            <div class="settings-divider"></div>
+            <div class="toggle-row">
+              <div>
+                <span class="toggle-row-title">Product updates</span>
+                <p class="toggle-row-sub">Occasional emails about new CodeForge Pro features.</p>
+              </div>
+              <label class="switch-forge">
+                <input type="checkbox" />
+                <span class="switch-track" aria-hidden="true"></span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================= CONNECTED APPS ============================= -->
+        <section id="connected" class="detail-section" aria-labelledby="connected-heading">
+          <div class="panel-forge">
+            <div class="panel-head">
+              <h2 id="connected-heading">Connected apps</h2>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-md-4">
+                <div class="connected-card">
+                  <span class="connected-icon"><i class="bi bi-github" aria-hidden="true"></i></span>
+                  <div class="connected-meta">
+                    <span class="connected-name">GitHub</span>
+                    <span class="connected-status linked"><i class="bi bi-check-circle-fill me-1" aria-hidden="true"></i> Connected</span>
+                  </div>
+                  <button type="button" class="btn-ghost sm">Disconnect</button>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="connected-card">
+                  <span class="connected-icon"><i class="bi bi-google" aria-hidden="true"></i></span>
+                  <div class="connected-meta">
+                    <span class="connected-name">Google</span>
+                    <span class="connected-status linked"><i class="bi bi-check-circle-fill me-1" aria-hidden="true"></i> Connected</span>
+                  </div>
+                  <button type="button" class="btn-ghost sm">Disconnect</button>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="connected-card">
+                  <span class="connected-icon"><i class="bi bi-slack" aria-hidden="true"></i></span>
+                  <div class="connected-meta">
+                    <span class="connected-name">Slack</span>
+                    <span class="connected-status"><i class="bi bi-dash-circle me-1" aria-hidden="true"></i> Not connected</span>
+                  </div>
+                  <button type="button" class="btn-ember sm">Connect</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================= DANGER ZONE ============================= -->
+        <section id="danger" class="detail-section" aria-labelledby="danger-heading">
+          <div class="panel-forge danger-panel">
+            <div class="panel-head">
+              <h2 id="danger-heading">Danger zone</h2>
+            </div>
+            <div class="danger-row">
+              <div>
+                <span class="toggle-row-title">Deactivate account</span>
+                <p class="toggle-row-sub">Temporarily disable your account. You can reactivate by logging back in.</p>
+              </div>
+              <button type="button" class="btn-ghost danger-btn">Deactivate</button>
+            </div>
+            <div class="settings-divider"></div>
+            <div class="danger-row">
+              <div>
+                <span class="toggle-row-title">Delete account</span>
+                <p class="toggle-row-sub">Permanently delete your account and all associated data. This cannot be undone.</p>
+              </div>
+              <button type="button" class="btn-danger">Delete account</button>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS bundle (needed for offcanvas sidebar UI only) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <!-- Profile page animation -->
+  <script src="js/profile-animation.js"></script>
+</body>
+</html>

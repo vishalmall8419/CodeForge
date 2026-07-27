@@ -1,0 +1,425 @@
+/* ==========================================================================
+   CodeForge Pro — Dashboard app shell
+   Extends style.css design tokens (--ink, --ember, --surface, etc).
+   Sidebar + topbar layout for authenticated workspace pages.
+   ========================================================================== */
+
+.app-body {
+  overflow-x: hidden;
+}
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--ink);
+}
+
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+.sidebar-forge {
+  width: 264px;
+  flex-shrink: 0;
+  background: var(--ink-soft);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 1.4rem 1.1rem;
+}
+
+.sidebar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.3rem 1.4rem;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.sidebar-nav-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 1.3rem 0.6rem 0.6rem;
+}
+.sidebar-nav-label:first-child { margin-top: 0.4rem; }
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.62rem 0.7rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.sidebar-link i { font-size: 1rem; width: 1.1rem; text-align: center; flex-shrink: 0; }
+.sidebar-link:hover { background: var(--surface); color: var(--text-primary); }
+.sidebar-link.active {
+  background: var(--ember-soft);
+  color: var(--ember);
+}
+
+.sidebar-foot {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.sidebar-user {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem;
+  margin-top: 0.6rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.sidebar-user-meta {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+.sidebar-user-name {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sidebar-user-role {
+  font-size: 0.72rem;
+  color: var(--text-faint);
+}
+.sidebar-logout {
+  color: var(--text-faint);
+  font-size: 1.05rem;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+.sidebar-logout:hover { color: var(--ember); }
+
+@media (min-width: 992px) {
+  .sidebar-forge.offcanvas-lg {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+}
+
+/* ==========================================================================
+   App main / topbar
+   ========================================================================== */
+.app-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar-forge {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.6rem;
+  background: rgba(11, 13, 16, 0.72);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-toggle-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+}
+
+.topbar-search {
+  flex: 1;
+  max-width: 420px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.9rem;
+}
+.topbar-search i { color: var(--text-faint); }
+.topbar-search input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 0.88rem;
+}
+.topbar-search input::placeholder { color: var(--text-faint); }
+.topbar-search input:focus { outline: none; }
+.topbar-kbd {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+}
+
+.topbar-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.topbar-icon-btn {
+  position: relative;
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  color: var(--text-muted);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.topbar-icon-btn:hover { border-color: var(--ember); color: var(--ember); }
+.topbar-dot {
+  position: absolute;
+  top: 7px; right: 8px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--ember);
+  box-shadow: 0 0 0 2px var(--ink-soft);
+}
+
+.topbar-cta { padding: 0.55rem 1.1rem; font-size: 0.86rem; }
+
+.topbar-avatar { width: 34px; height: 34px; font-size: 0.72rem; }
+
+/* ==========================================================================
+   Content
+   ========================================================================== */
+.app-content {
+  padding: 2.2rem 1.6rem 3.5rem;
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.content-head { margin-bottom: 2.2rem; }
+.dash-eyebrow { margin-bottom: 0.5rem; }
+.dash-heading { font-size: clamp(1.7rem, 2.6vw, 2.1rem); }
+.dash-temper { margin: 0.9rem 0 1.1rem; }
+.dash-sub { color: var(--text-muted); font-size: 0.96rem; max-width: 480px; }
+
+/* ==========================================================================
+   KPI row
+   ========================================================================== */
+.kpi-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.5rem 1.4rem;
+  height: 100%;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.kpi-card:hover { border-color: rgba(255, 106, 57, 0.35); transform: translateY(-3px); }
+
+.kpi-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: var(--ember-soft);
+  color: var(--ember);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+.kpi-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.kpi-label {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.kpi-trend {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  margin-top: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.kpi-trend.up { color: #3fbf7f; }
+.kpi-trend.down { color: var(--amber); }
+.kpi-trend.flat { color: var(--text-faint); }
+
+/* ==========================================================================
+   Panels
+   ========================================================================== */
+.panel-forge {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem;
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.3rem;
+}
+.panel-head h2 {
+  font-size: 1.05rem;
+  margin: 0;
+}
+.panel-link {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--ember);
+  display: inline-flex;
+  align-items: center;
+}
+.panel-link:hover { color: var(--amber); }
+
+.dash-preview.no-shadow {
+  box-shadow: none;
+  padding: 0;
+  border: none;
+  background: transparent;
+  margin-bottom: 1.6rem;
+}
+
+/* ==========================================================================
+   Project table
+   ========================================================================== */
+.project-table { margin-top: 0.4rem; }
+
+.project-row {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.4fr 0.8fr;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 0.4rem;
+  border-bottom: 1px dashed var(--border);
+}
+.project-row:last-child { border-bottom: none; }
+
+.project-row-head {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  padding-bottom: 0.6rem;
+}
+
+.project-name {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+}
+.project-name i { color: var(--text-faint); }
+
+.project-owner {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+
+.progress-track {
+  height: 6px;
+  background: var(--surface-raised);
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+}
+.progress-fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--ember), var(--amber));
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   Activity console + upcoming
+   ========================================================================== */
+.activity-console { margin-bottom: 1.5rem; }
+
+.upcoming-panel { padding: 1.5rem 1.6rem; }
+
+.upcoming-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.upcoming-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: 0.86rem;
+}
+.upcoming-list li:last-child { border-bottom: none; }
+.upcoming-date {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ember);
+  flex-shrink: 0;
+  width: 3.6rem;
+}
+.upcoming-title { color: var(--text-muted); }
+
+/* ==========================================================================
+   Responsive tweaks
+   ========================================================================== */
+@media (max-width: 991.98px) {
+  .sidebar-forge {
+    width: 264px;
+    background: var(--ink-soft);
+    color: var(--text-primary);
+  }
+  .app-content { padding: 1.8rem 1.1rem 3rem; }
+  .topbar-forge { padding: 0.8rem 1.1rem; }
+  .topbar-search { display: none; }
+}
+
+@media (max-width: 767.98px) {
+  .project-row {
+    grid-template-columns: 1.6fr 1fr 0.8fr;
+  }
+  .project-row .project-owner { display: none; }
+  .project-row-head span:nth-child(2) { display: none; }
+}
+
+@media (max-width: 575.98px) {
+  .kpi-card { padding: 1.3rem; }
+}

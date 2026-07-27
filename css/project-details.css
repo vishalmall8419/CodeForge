@@ -1,0 +1,599 @@
+/* ==========================================================================
+   CodeForge Pro — Project details page
+   Extends style.css design tokens (--ink, --ember, --surface, etc).
+   Self-contained: includes the shared app-shell component styles
+   (also used on dashboard.html / projects.html) plus detail-page additions.
+   ========================================================================== */
+
+.app-body {
+  overflow-x: hidden;
+}
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--ink);
+}
+
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+.sidebar-forge {
+  width: 264px;
+  flex-shrink: 0;
+  background: var(--ink-soft);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 1.4rem 1.1rem;
+}
+
+.sidebar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.3rem 1.4rem;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.sidebar-nav-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 1.3rem 0.6rem 0.6rem;
+}
+.sidebar-nav-label:first-child { margin-top: 0.4rem; }
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.62rem 0.7rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.sidebar-link i { font-size: 1rem; width: 1.1rem; text-align: center; flex-shrink: 0; }
+.sidebar-link:hover { background: var(--surface); color: var(--text-primary); }
+.sidebar-link.active {
+  background: var(--ember-soft);
+  color: var(--ember);
+}
+
+.sidebar-foot {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.sidebar-user {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem;
+  margin-top: 0.6rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.sidebar-user-meta {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+.sidebar-user-name {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sidebar-user-role {
+  font-size: 0.72rem;
+  color: var(--text-faint);
+}
+.sidebar-logout {
+  color: var(--text-faint);
+  font-size: 1.05rem;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+.sidebar-logout:hover { color: var(--ember); }
+
+@media (min-width: 992px) {
+  .sidebar-forge.offcanvas-lg {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+}
+
+/* ==========================================================================
+   App main / topbar
+   ========================================================================== */
+.app-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar-forge {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.6rem;
+  background: rgba(11, 13, 16, 0.72);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-toggle-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+}
+
+.topbar-search {
+  flex: 1;
+  max-width: 420px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.9rem;
+}
+.topbar-search i { color: var(--text-faint); }
+.topbar-search input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 0.88rem;
+}
+.topbar-search input::placeholder { color: var(--text-faint); }
+.topbar-search input:focus { outline: none; }
+.topbar-kbd {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+}
+
+.topbar-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.topbar-icon-btn {
+  position: relative;
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  color: var(--text-muted);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.topbar-icon-btn:hover { border-color: var(--ember); color: var(--ember); }
+.topbar-dot {
+  position: absolute;
+  top: 7px; right: 8px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--ember);
+  box-shadow: 0 0 0 2px var(--ink-soft);
+}
+
+.topbar-cta { padding: 0.55rem 1.1rem; font-size: 0.86rem; }
+
+.topbar-avatar { width: 34px; height: 34px; font-size: 0.72rem; }
+
+/* ==========================================================================
+   Content
+   ========================================================================== */
+.app-content {
+  padding: 2.2rem 1.6rem 3.5rem;
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Breadcrumb
+   ========================================================================== */
+.breadcrumb-forge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.84rem;
+  color: var(--text-faint);
+  margin-bottom: 1.4rem;
+}
+.breadcrumb-forge a { color: var(--text-muted); }
+.breadcrumb-forge a:hover { color: var(--ember); }
+.breadcrumb-forge i { font-size: 0.7rem; }
+.breadcrumb-forge span { color: var(--text-primary); }
+
+/* ==========================================================================
+   Project header
+   ========================================================================== */
+.project-header {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 2rem;
+  margin-bottom: 1.8rem;
+}
+
+.project-header-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.project-title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.project-card-icon {
+  width: 38px; height: 38px;
+  border-radius: 9px;
+  background: var(--ember-soft);
+  color: var(--ember);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.project-card-icon.lg {
+  width: 50px; height: 50px;
+  border-radius: 12px;
+  font-size: 1.3rem;
+  margin-top: 0.2rem;
+}
+
+.project-title-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.project-title {
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  margin: 0;
+}
+
+.project-actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+.project-actions .btn-ghost,
+.project-actions .btn-ember {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.86rem;
+}
+
+.project-desc {
+  color: var(--text-muted);
+  font-size: 0.94rem;
+  max-width: 680px;
+  margin-bottom: 1.6rem;
+}
+
+.project-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.2rem;
+  padding-bottom: 1.6rem;
+  margin-bottom: 1.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.meta-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.meta-value {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-progress-lg-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+.project-progress-lg .progress-pct {
+  font-family: var(--font-mono);
+  color: var(--ember);
+  font-weight: 600;
+}
+
+.progress-track {
+  height: 8px;
+  background: var(--surface-raised);
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+}
+.progress-fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--ember), var(--amber));
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   Tab bar
+   ========================================================================== */
+.tab-bar {
+  display: flex;
+  gap: 0.4rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+  overflow-x: auto;
+}
+
+.tab-link {
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.tab-link:hover { color: var(--text-primary); }
+.tab-link.active {
+  color: var(--ember);
+  border-color: var(--ember);
+}
+
+/* ==========================================================================
+   Detail sections
+   ========================================================================== */
+.detail-section {
+  margin-bottom: 2.4rem;
+  scroll-margin-top: 5.5rem;
+}
+
+.stat-mini {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.4rem;
+  height: 100%;
+}
+.stat-mini-icon {
+  width: 36px; height: 36px;
+  border-radius: 9px;
+  background: var(--ember-soft);
+  color: var(--ember);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.98rem;
+  margin-bottom: 0.9rem;
+}
+.stat-mini-num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.stat-mini-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.35rem;
+}
+
+/* ==========================================================================
+   Panel (shared shell)
+   ========================================================================== */
+.panel-forge {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem;
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.3rem;
+}
+.panel-head h2 {
+  font-size: 1.05rem;
+  margin: 0;
+}
+.panel-link {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--ember);
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+}
+.panel-link:hover { color: var(--amber); }
+.panel-link.bare { padding: 0; }
+
+/* ==========================================================================
+   Task list
+   ========================================================================== */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.task-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto auto;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.75rem 0.3rem;
+  border-bottom: 1px dashed var(--border);
+}
+.task-row:last-child { border-bottom: none; }
+
+.task-check {
+  width: 22px; height: 22px;
+  border-radius: 6px;
+  border: 1px solid var(--border-strong);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  font-size: 0.8rem;
+}
+.task-row.done .task-check {
+  background: #3fbf7f;
+  border-color: #3fbf7f;
+  color: #08130d;
+}
+
+.task-name {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+.task-row.done .task-name {
+  color: var(--text-faint);
+  text-decoration: line-through;
+}
+
+/* ==========================================================================
+   Activity console
+   ========================================================================== */
+.activity-console { margin-bottom: 0; }
+
+/* ==========================================================================
+   Files
+   ========================================================================== */
+.file-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1rem;
+  height: 100%;
+}
+.file-icon {
+  width: 38px; height: 38px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.file-icon.pdf { background: rgba(255, 106, 57, 0.16); color: var(--ember); }
+.file-icon.fig { background: rgba(255, 180, 71, 0.16); color: var(--amber); }
+.file-icon.sheet { background: rgba(63, 191, 127, 0.16); color: #3fbf7f; }
+
+.file-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.file-name {
+  font-size: 0.86rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.file-sub {
+  font-size: 0.74rem;
+  color: var(--text-faint);
+  margin-top: 0.15rem;
+}
+
+/* ==========================================================================
+   Avatars
+   ========================================================================== */
+.avatar-stack { display: flex; }
+.avatar-forge.sm {
+  width: 26px;
+  height: 26px;
+  font-size: 0.64rem;
+  border: 2px solid var(--surface);
+  margin-left: -8px;
+}
+.avatar-stack .avatar-forge.sm:first-child { margin-left: 0; }
+
+/* ==========================================================================
+   Responsive tweaks
+   ========================================================================== */
+@media (max-width: 991.98px) {
+  .sidebar-forge {
+    width: 264px;
+    background: var(--ink-soft);
+    color: var(--text-primary);
+  }
+  .app-content { padding: 1.8rem 1.1rem 3rem; }
+  .topbar-forge { padding: 0.8rem 1.1rem; }
+  .topbar-search { display: none; }
+}
+
+@media (max-width: 767.98px) {
+  .project-header { padding: 1.4rem 1.3rem; }
+  .project-header-top { flex-direction: column; }
+  .project-actions { width: 100%; }
+  .project-actions .btn-ghost,
+  .project-actions .btn-ember { flex: 1; justify-content: center; display: inline-flex; }
+  .task-row { grid-template-columns: 1.8rem 1fr auto; }
+  .task-row .avatar-forge { display: none; }
+}
+
+@media (max-width: 575.98px) {
+  .project-meta-row { gap: 1.4rem; }
+}

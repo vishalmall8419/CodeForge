@@ -1,0 +1,223 @@
+/* ==========================================================================
+   CodeForge Pro — Calendar
+   Extends tokens from css/style.css and reuses the app shell (sidebar,
+   topbar, panel, avatar classes) from css/dashboard.css — both loaded
+   before this file. Adds: month grid, event pills, day/agenda panels.
+   ========================================================================== */
+
+/* ---------- Toolbar ---------- */
+.cal-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.6rem;
+}
+
+.cal-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.cal-nav-btn {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text-muted);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 0.8rem;
+}
+.cal-nav-btn:hover { color: var(--text-primary); border-color: var(--border-strong); }
+
+.cal-today-btn {
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-sm);
+}
+.cal-today-btn:hover { color: var(--text-primary); }
+
+.cal-month-label {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  min-width: 170px;
+}
+
+.cal-view-toggle {
+  display: inline-flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 3px;
+  margin-left: auto;
+}
+.cal-view-btn {
+  border: none;
+  background: transparent;
+  color: var(--text-faint);
+  font-size: 0.83rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+}
+.cal-view-btn.active {
+  background: var(--surface-raised);
+  color: var(--text-primary);
+}
+
+/* ---------- Legend ---------- */
+.cal-legend {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.cal-legend-item { display: inline-flex; align-items: center; gap: 0.45rem; }
+.cal-legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+.dot-meeting { background: #9d7bff; }
+.dot-deadline { background: var(--ember); }
+.dot-release { background: #3fbf7f; }
+.dot-milestone { background: var(--amber); }
+
+/* ---------- Month grid ---------- */
+.cal-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.cal-dow-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 1px solid var(--border);
+}
+.cal-dow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  text-align: center;
+  padding: 0.85rem 0;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: minmax(108px, auto);
+}
+
+.cal-cell {
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+.cal-cell:nth-child(7n) { border-right: none; }
+
+.cal-cell.muted { background: rgba(255, 255, 255, 0.015); }
+.cal-cell.muted .cal-daynum { color: var(--text-faint); opacity: 0.55; }
+
+.cal-daynum {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  width: 22px; height: 22px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 6px;
+}
+.cal-cell.today .cal-daynum {
+  background: var(--ember);
+  color: #fff;
+  font-weight: 600;
+}
+
+.cal-event-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.71rem;
+  padding: 0.18rem 0.4rem;
+  border-radius: 5px;
+  background: var(--surface-raised);
+  color: var(--text-primary);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.cal-event-pill .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.cal-event-pill.meeting { border-left: 2px solid #9d7bff; }
+.cal-event-pill.deadline { border-left: 2px solid var(--ember); }
+.cal-event-pill.release { border-left: 2px solid #3fbf7f; }
+.cal-event-pill.milestone { border-left: 2px solid var(--amber); }
+
+.cal-more {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-faint);
+  padding: 0.1rem 0.3rem;
+}
+
+/* ---------- Right column: today / upcoming ---------- */
+.cal-side-col { display: flex; flex-direction: column; gap: 1.2rem; }
+
+.agenda-row {
+  display: flex;
+  gap: 0.9rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.agenda-row:last-child { border-bottom: none; }
+.agenda-time {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  min-width: 56px;
+  padding-top: 0.15rem;
+}
+.agenda-body { flex: 1; }
+.agenda-title { font-size: 0.87rem; color: var(--text-primary); font-weight: 500; }
+.agenda-sub {
+  font-size: 0.76rem;
+  color: var(--text-faint);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
+}
+.agenda-stripe {
+  width: 3px;
+  border-radius: 3px;
+  align-self: stretch;
+  flex-shrink: 0;
+}
+.agenda-stripe.meeting { background: #9d7bff; }
+.agenda-stripe.deadline { background: var(--ember); }
+.agenda-stripe.release { background: #3fbf7f; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 991.98px) {
+  .cal-side-col { margin-top: 1.4rem; }
+  .cal-grid { grid-auto-rows: minmax(88px, auto); }
+  .cal-month-label { font-size: 1.05rem; min-width: 0; }
+}
+
+@media (max-width: 767.98px) {
+  .cal-grid { grid-auto-rows: minmax(72px, auto); }
+  .cal-event-pill span.label { display: none; }
+  .cal-dow { font-size: 0.62rem; padding: 0.6rem 0; }
+  .cal-toolbar { gap: 0.6rem; }
+  .cal-view-toggle { margin-left: 0; order: 10; width: 100%; }
+}

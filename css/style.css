@@ -1,0 +1,603 @@
+/* ==========================================================================
+   CodeForge Pro — Design Tokens
+   Palette: ink/surface (foundry dark) + ember/amber (heated metal) + steel (neutral)
+   Type: Chakra Petch (display, stamped/industrial) + Inter (body) + JetBrains Mono (utility)
+   ========================================================================== */
+
+:root {
+  /* Color */
+  --ink: #0b0d10;
+  --ink-soft: #101317;
+  --surface: #15181d;
+  --surface-raised: #1b1f25;
+  --border: rgba(154, 161, 172, 0.14);
+  --border-strong: rgba(154, 161, 172, 0.28);
+
+  --ember: #ff6a39;
+  --ember-soft: rgba(255, 106, 57, 0.14);
+  --amber: #ffb447;
+  --steel: #5b6572;
+  --steel-light: #8b93a0;
+
+  --text-primary: #f4f5f7;
+  --text-muted: #9aa1ac;
+  --text-faint: #666e79;
+
+  --temper-gradient: linear-gradient(90deg, transparent 0%, var(--ember) 35%, var(--amber) 70%, transparent 100%);
+  --forge-glow: radial-gradient(700px circle at 78% -10%, rgba(255, 106, 57, 0.16), transparent 60%);
+
+  /* Type */
+  --font-display: "Chakra Petch", "Inter", sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Layout */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --container-max: 1240px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ink);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .display-font {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  line-height: 1.12;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+
+.text-muted-custom { color: var(--text-muted); }
+.text-faint { color: var(--text-faint); }
+
+a { text-decoration: none; }
+
+.container-forge {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Focus states — accessibility floor */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   Signature element: the Temper Line
+   A thin heat-gradient bar that sweeps in under key headlines — echoes
+   metal being drawn through a forge. Used sparingly at 3 key moments.
+   ========================================================================== */
+.temper-line {
+  height: 2px;
+  width: 72px;
+  background: var(--temper-gradient);
+  background-size: 200% 100%;
+  border-radius: 2px;
+  margin: 1.1rem 0 1.6rem;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.temper-line.wide { width: 100%; max-width: 340px; }
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+.navbar-forge {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11, 13, 16, 0.72);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--border);
+  padding: 0.9rem 0;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.brand-mark .glyph {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--ember), var(--amber));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.nav-link-forge {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 0.5rem 0.9rem !important;
+  transition: color 0.2s ease;
+}
+.nav-link-forge:hover,
+.nav-link-forge:focus-visible { color: var(--text-primary); }
+
+.btn-ember {
+  background: linear-gradient(135deg, var(--ember), #e6501f);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 0.62rem 1.35rem;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 6px 20px -6px rgba(255, 106, 57, 0.55);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-ember:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px -6px rgba(255, 106, 57, 0.65);
+  color: #fff;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.92rem;
+  padding: 0.6rem 1.3rem;
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.btn-ghost:hover { border-color: var(--ember); background: var(--ember-soft); color: var(--text-primary); }
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+  position: relative;
+  padding: 6.5rem 0 5rem;
+  background: var(--forge-glow), var(--ink);
+}
+
+.hero-heading {
+  font-size: clamp(2.4rem, 4.6vw, 3.9rem);
+  max-width: 680px;
+}
+
+.hero-heading .ember-word {
+  background: linear-gradient(100deg, var(--ember), var(--amber));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-sub {
+  max-width: 520px;
+  font-size: 1.08rem;
+  color: var(--text-muted);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2.2rem;
+  margin-top: 2.6rem;
+  flex-wrap: wrap;
+}
+.hero-stats .stat-num {
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+.hero-stats .stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Hero visual: a stylized build/commit console (CSS-built, not a stock photo) */
+.forge-console {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.6);
+}
+
+.forge-console-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.8rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-raised);
+}
+.forge-console-bar span {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--steel);
+  opacity: 0.5;
+}
+.forge-console-title {
+  margin-left: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-faint);
+}
+
+.forge-console-body {
+  padding: 1.3rem 1.4rem 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+}
+
+.commit-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px dashed var(--border);
+}
+.commit-row:last-child { border-bottom: none; }
+
+.commit-status {
+  width: 8px; height: 8px; border-radius: 50%;
+  flex-shrink: 0;
+}
+.commit-status.done { background: #3fbf7f; }
+.commit-status.building { background: var(--amber); box-shadow: 0 0 8px var(--amber); }
+.commit-status.queued { background: var(--steel); }
+
+.commit-msg { color: var(--text-primary); flex: 1; }
+.commit-time { color: var(--text-faint); font-size: 0.74rem; }
+
+.console-progress {
+  margin-top: 1rem;
+  height: 4px;
+  background: var(--surface-raised);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.console-progress-fill {
+  height: 100%;
+  width: 64%;
+  background: linear-gradient(90deg, var(--ember), var(--amber));
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   Trust strip
+   ========================================================================== */
+.trust-strip {
+  padding: 2.4rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.trust-strip .trust-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.trust-wordmark {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--steel-light);
+  font-size: 1.05rem;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+.trust-wordmark:hover { opacity: 1; }
+
+/* ==========================================================================
+   Section shell
+   ========================================================================== */
+.section-forge { padding: 6rem 0; }
+.section-forge.tight { padding: 4.5rem 0; }
+.section-head { max-width: 640px; margin-bottom: 3rem; }
+
+/* ==========================================================================
+   Feature cards
+   ========================================================================== */
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.8rem;
+  height: 100%;
+  transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+}
+.feature-card:hover {
+  border-color: rgba(255, 106, 57, 0.4);
+  transform: translateY(-4px);
+  background: var(--surface-raised);
+}
+.feature-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: var(--ember-soft);
+  color: var(--ember);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 1.1rem;
+}
+.feature-card h3 { font-size: 1.08rem; margin-bottom: 0.55rem; }
+.feature-card p { color: var(--text-muted); font-size: 0.92rem; margin: 0; }
+
+/* ==========================================================================
+   Process (Plan / Build / Ship) — a real sequence, numbering is earned
+   ========================================================================== */
+.process-step {
+  position: relative;
+  padding-left: 3.6rem;
+}
+.process-num {
+  position: absolute;
+  left: 0; top: 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--ember);
+  border: 1px solid var(--border-strong);
+  width: 2.5rem; height: 2.5rem;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.process-step h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+.process-step p { color: var(--text-muted); font-size: 0.9rem; }
+.process-connector {
+  width: 1px;
+  background: var(--border-strong);
+  margin: 0.3rem 0 0.3rem 1.25rem;
+  flex: 1;
+}
+
+/* ==========================================================================
+   Dashboard preview
+   ========================================================================== */
+.dash-preview {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem;
+  box-shadow: 0 40px 90px -40px rgba(0, 0, 0, 0.7);
+}
+.dash-col {
+  background: var(--surface-raised);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  border: 1px solid var(--border);
+}
+.dash-col-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  margin-bottom: 0.8rem;
+}
+.dash-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.65rem 0.75rem;
+  font-size: 0.82rem;
+  margin-bottom: 0.6rem;
+  color: var(--text-primary);
+}
+.dash-card .tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  margin-top: 0.4rem;
+}
+.tag.high { background: rgba(255, 106, 57, 0.16); color: var(--ember); }
+.tag.mid { background: rgba(255, 180, 71, 0.16); color: var(--amber); }
+.tag.low { background: rgba(154, 161, 172, 0.16); color: var(--steel-light); }
+
+/* ==========================================================================
+   Testimonials
+   ========================================================================== */
+.testimonial-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.8rem;
+  height: 100%;
+}
+.testimonial-card p.quote {
+  font-size: 0.98rem;
+  color: var(--text-primary);
+  margin-bottom: 1.3rem;
+}
+.testimonial-person {
+  display: flex; align-items: center; gap: 0.7rem;
+}
+.avatar-forge {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--ember), var(--amber));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-weight: 700; font-size: 0.8rem;
+  color: var(--ink);
+}
+.testimonial-name { font-size: 0.88rem; font-weight: 600; }
+.testimonial-role { font-size: 0.78rem; color: var(--text-faint); }
+
+/* ==========================================================================
+   Pricing teaser
+   ========================================================================== */
+.pricing-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.7rem;
+  height: 100%;
+}
+.pricing-card.featured {
+  border-color: rgba(255, 106, 57, 0.5);
+  background: linear-gradient(180deg, var(--surface-raised), var(--surface));
+  position: relative;
+}
+.pricing-badge {
+  position: absolute; top: -12px; left: 1.7rem;
+  background: var(--ember);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+}
+.price-amount {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+.price-period { color: var(--text-faint); font-size: 0.85rem; }
+.pricing-features { list-style: none; padding: 0; margin: 1.5rem 0; }
+.pricing-features li {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.88rem; color: var(--text-muted);
+  padding: 0.4rem 0;
+}
+.pricing-features li i { color: var(--ember); }
+
+/* ==========================================================================
+   CTA banner
+   ========================================================================== */
+.cta-banner {
+  border-radius: var(--radius-lg);
+  padding: 3.5rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(500px circle at 20% 0%, rgba(255, 106, 57, 0.25), transparent 60%),
+    radial-gradient(500px circle at 80% 100%, rgba(255, 180, 71, 0.18), transparent 60%),
+    var(--surface);
+  border: 1px solid var(--border);
+}
+.cta-banner h2 { max-width: 560px; margin: 0 auto 0.8rem; }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer-forge {
+  border-top: 1px solid var(--border);
+  padding: 4rem 0 2rem;
+  background: var(--ink-soft);
+}
+.footer-col-title {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+  margin-bottom: 1rem;
+}
+.footer-link {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  padding: 0.3rem 0;
+  transition: color 0.2s ease;
+}
+.footer-link:hover, .footer-link:focus-visible { color: var(--text-primary); }
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+  padding-top: 1.6rem;
+  font-size: 0.82rem;
+  color: var(--text-faint);
+}
+.social-icon {
+  width: 36px; height: 36px;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--text-muted);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.social-icon:hover { border-color: var(--ember); color: var(--ember); }
+
+/* ==========================================================================
+   Skip link (accessibility)
+   ========================================================================== */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--ember);
+  color: #fff;
+  padding: 0.7rem 1.2rem;
+  z-index: 999;
+  border-radius: 0 0 8px 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* ==========================================================================
+   Reduced motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  html { scroll-behavior: auto; }
+}
+
+/* ==========================================================================
+   Responsive tweaks
+   ========================================================================== */
+@media (max-width: 991.98px) {
+  .hero { padding: 4rem 0 3rem; text-align: left; }
+  .section-forge { padding: 4rem 0; }
+  .process-step { padding-left: 3.2rem; }
+}
+
+@media (max-width: 575.98px) {
+  .hero-stats { gap: 1.4rem; }
+  .cta-banner { padding: 2.5rem 1.4rem; }
+}

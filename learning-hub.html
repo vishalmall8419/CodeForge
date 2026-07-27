@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Learning Hub — CodeForge Pro</title>
+  <meta name="description" content="Onboard new teammates and level up skills with guided courses built around your CodeForge Pro workflow." />
+  <meta name="keywords" content="learning hub, onboarding, team training, courses, CodeForge Pro" />
+  <meta name="author" content="CodeForge Pro" />
+  <link rel="canonical" href="https://www.codeforgepro.example/learning-hub.html" />
+  <meta name="robots" content="noindex, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CodeForge Pro" />
+  <meta property="og:title" content="Learning Hub — CodeForge Pro" />
+  <meta property="og:description" content="Guided courses built around your team's workflow." />
+  <meta property="og:image" content="https://www.codeforgepro.example/assets/og-cover.jpg" />
+  <meta property="og:url" content="https://www.codeforgepro.example/learning-hub.html" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Learning Hub — CodeForge Pro" />
+  <meta name="twitter:description" content="Guided courses built around your team's workflow." />
+  <meta name="twitter:image" content="https://www.codeforgepro.example/assets/og-cover.jpg" />
+
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+  <!-- Favicon (same mark as Home) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0d10'/%3E%3Cpath d='M9 22 L16 8 L23 22' stroke='%23ff6a39' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+  <!-- Shared design system (unmodified) -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- App shell: sidebar / topbar (unmodified, reused from Dashboard) -->
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <!-- Learning Hub page styles -->
+  <link rel="stylesheet" href="css/learning-hub.css" />
+</head>
+<body class="app-body">
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+
+    <!-- ============================= SIDEBAR ============================= -->
+    <aside class="app-sidebar" id="appSidebar" aria-label="Primary application navigation">
+      <a class="brand-mark sidebar-brand" href="index.html">
+        <span class="glyph" aria-hidden="true"><i class="bi bi-triangle-fill"></i></span>
+        CodeForge&nbsp;Pro
+      </a>
+
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-label">Workspace</li>
+        <li><a href="dashboard.html" class="sidebar-link"><i class="bi bi-grid-1x2" aria-hidden="true"></i> Dashboard</a></li>
+        <li><a href="projects.html" class="sidebar-link"><i class="bi bi-kanban" aria-hidden="true"></i> Projects</a></li>
+        <li><a href="tasks.html" class="sidebar-link"><i class="bi bi-check2-square" aria-hidden="true"></i> Tasks <span class="badge-count">12</span></a></li>
+        <li><a href="calendar.html" class="sidebar-link"><i class="bi bi-calendar3" aria-hidden="true"></i> Calendar</a></li>
+        <li><a href="notes.html" class="sidebar-link"><i class="bi bi-journal-text" aria-hidden="true"></i> Notes</a></li>
+
+        <li class="sidebar-nav-label">Insights</li>
+        <li><a href="analytics.html" class="sidebar-link"><i class="bi bi-bar-chart-line" aria-hidden="true"></i> Analytics</a></li>
+        <li><a href="reports.html" class="sidebar-link"><i class="bi bi-file-earmark-text" aria-hidden="true"></i> Reports</a></li>
+        <li><a href="learning-hub.html" class="sidebar-link active" aria-current="page"><i class="bi bi-mortarboard" aria-hidden="true"></i> Learning Hub</a></li>
+
+        <li class="sidebar-nav-label">Account</li>
+        <li><a href="settings.html" class="sidebar-link"><i class="bi bi-gear" aria-hidden="true"></i> Settings</a></li>
+        <li><a href="help.html" class="sidebar-link"><i class="bi bi-question-circle" aria-hidden="true"></i> Help</a></li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <div class="avatar-forge" aria-hidden="true">MA</div>
+        <div>
+          <div class="sidebar-user-name">Maya Alvarez</div>
+          <div class="sidebar-user-role">Head of Product</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============================= MAIN ============================= -->
+    <div class="app-main">
+
+      <!-- ============================= TOPBAR ============================= -->
+      <header class="app-topbar">
+        <button class="topbar-icon-btn d-lg-none" type="button" aria-label="Toggle sidebar" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar">
+          <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
+
+        <div class="topbar-search">
+          <i class="bi bi-search" aria-hidden="true"></i>
+          <input type="search" placeholder="Search courses, guides…" aria-label="Search" />
+        </div>
+
+        <div class="d-flex align-items-center gap-2 ms-auto">
+          <button class="topbar-icon-btn" type="button" aria-label="Notifications">
+            <i class="bi bi-bell" aria-hidden="true"></i>
+            <span class="ping" aria-hidden="true"></span>
+          </button>
+          <a href="settings.html" class="topbar-icon-btn" aria-label="Account settings">
+            <i class="bi bi-gear" aria-hidden="true"></i>
+          </a>
+          <div class="avatar-forge d-none d-sm-flex" aria-hidden="true">MA</div>
+        </div>
+      </header>
+
+      <!-- ============================= CONTENT ============================= -->
+      <main id="main-content" class="app-content">
+
+        <div class="content-head">
+          <div>
+            <h1>Learning Hub</h1>
+            <div class="temper-line" aria-hidden="true"></div>
+            <p class="text-muted-custom mb-0">Onboard faster and level up skills with courses built around how your team works.</p>
+          </div>
+        </div>
+
+        <!-- Category tabs -->
+        <div class="lh-tabs" role="tablist" aria-label="Course categories">
+          <button type="button" class="lh-tab active" role="tab" aria-selected="true">All</button>
+          <button type="button" class="lh-tab" role="tab" aria-selected="false">Onboarding</button>
+          <button type="button" class="lh-tab" role="tab" aria-selected="false">Engineering</button>
+          <button type="button" class="lh-tab" role="tab" aria-selected="false">Design</button>
+          <button type="button" class="lh-tab" role="tab" aria-selected="false">Product</button>
+          <button type="button" class="lh-tab" role="tab" aria-selected="false">Leadership</button>
+        </div>
+
+        <!-- Featured course -->
+        <section class="lh-featured" aria-labelledby="featured-title">
+          <img
+            class="lh-featured-img"
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80"
+            alt="Team collaborating around a laptop during a workshop"
+          />
+          <div class="lh-featured-scrim" aria-hidden="true"></div>
+          <div class="lh-featured-body">
+            <p class="eyebrow">Featured path</p>
+            <h2 id="featured-title">Running your first sprint in CodeForge</h2>
+            <p>A guided path through planning, building, and shipping your first project — built for new team leads.</p>
+            <div class="lh-featured-meta">
+              <span><i class="bi bi-collection-play" aria-hidden="true"></i> 8 lessons</span>
+              <span><i class="bi bi-clock" aria-hidden="true"></i> 1h 40m</span>
+              <span><i class="bi bi-bar-chart" aria-hidden="true"></i> Beginner</span>
+            </div>
+            <a href="#" class="btn-ember">Start this path</a>
+          </div>
+        </section>
+
+        <div class="row g-4">
+          <!-- ============================= MAIN COLUMN ============================= -->
+          <div class="col-lg-8">
+
+            <!-- Continue learning -->
+            <div class="section-head" style="margin-bottom: 1.2rem;">
+              <h2 style="font-size:1.05rem;">Continue learning</h2>
+            </div>
+            <div class="row g-3 mb-2">
+              <div class="col-md-6">
+                <div class="continue-card">
+                  <img class="continue-thumb" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=120&q=80" alt="" />
+                  <div class="continue-body">
+                    <div class="continue-title">API design fundamentals</div>
+                    <div class="continue-progress-track"><div class="continue-progress-fill" style="width: 68%;"></div></div>
+                    <span class="continue-pct">68% complete</span>
+                  </div>
+                  <button type="button" class="continue-play" aria-label="Resume API design fundamentals"><i class="bi bi-play-fill" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="continue-card">
+                  <img class="continue-thumb" src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=120&q=80" alt="" />
+                  <div class="continue-body">
+                    <div class="continue-title">Design systems 101</div>
+                    <div class="continue-progress-track"><div class="continue-progress-fill" style="width: 32%;"></div></div>
+                    <span class="continue-pct">32% complete</span>
+                  </div>
+                  <button type="button" class="continue-play" aria-label="Resume Design systems 101"><i class="bi bi-play-fill" aria-hidden="true"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <!-- All courses -->
+            <div class="section-head" style="margin: 2rem 0 1.2rem;">
+              <h2 style="font-size:1.05rem;">All courses</h2>
+            </div>
+
+            <div class="row g-4">
+              <div class="col-md-6 col-xl-4">
+                <div class="course-card">
+                  <div class="course-thumb-wrap">
+                    <img class="course-thumb" src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=500&q=80" alt="Analytics dashboard on a laptop screen" />
+                    <span class="course-level">Beginner</span>
+                    <button type="button" class="course-bookmark" aria-label="Save Reading your analytics dashboard"><i class="bi bi-bookmark" aria-hidden="true"></i></button>
+                  </div>
+                  <div class="course-body">
+                    <div class="course-category">Product</div>
+                    <h3 class="course-title">Reading your analytics dashboard</h3>
+                    <div class="course-foot">
+                      <span><i class="bi bi-collection-play" aria-hidden="true"></i> 5 lessons</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 45m</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-xl-4">
+                <div class="course-card">
+                  <div class="course-thumb-wrap">
+                    <img class="course-thumb" src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=500&q=80" alt="Team in a meeting reviewing a project plan" />
+                    <span class="course-level">Beginner</span>
+                    <button type="button" class="course-bookmark" aria-label="Save Running effective sprint reviews"><i class="bi bi-bookmark" aria-hidden="true"></i></button>
+                  </div>
+                  <div class="course-body">
+                    <div class="course-category">Leadership</div>
+                    <h3 class="course-title">Running effective sprint reviews</h3>
+                    <div class="course-foot">
+                      <span><i class="bi bi-collection-play" aria-hidden="true"></i> 6 lessons</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 55m</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-xl-4">
+                <div class="course-card">
+                  <div class="course-thumb-wrap">
+                    <img class="course-thumb" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80" alt="Desk workspace with a notebook and laptop" />
+                    <span class="course-level">Intermediate</span>
+                    <button type="button" class="course-bookmark" aria-label="Save Organizing projects that scale"><i class="bi bi-bookmark" aria-hidden="true"></i></button>
+                  </div>
+                  <div class="course-body">
+                    <div class="course-category">Onboarding</div>
+                    <h3 class="course-title">Organizing projects that scale</h3>
+                    <div class="course-foot">
+                      <span><i class="bi bi-collection-play" aria-hidden="true"></i> 7 lessons</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 1h 10m</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-xl-4">
+                <div class="course-card">
+                  <div class="course-thumb-wrap">
+                    <img class="course-thumb" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=500&q=80" alt="Engineers collaborating around a shared screen" />
+                    <span class="course-level">Advanced</span>
+                    <button type="button" class="course-bookmark" aria-label="Save Writing APIs your team will thank you for"><i class="bi bi-bookmark" aria-hidden="true"></i></button>
+                  </div>
+                  <div class="course-body">
+                    <div class="course-category">Engineering</div>
+                    <h3 class="course-title">Writing APIs your team will thank you for</h3>
+                    <div class="course-foot">
+                      <span><i class="bi bi-collection-play" aria-hidden="true"></i> 9 lessons</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 1h 55m</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-xl-4">
+                <div class="course-card">
+                  <div class="course-thumb-wrap">
+                    <img class="course-thumb" src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=500&q=80" alt="Designer sketching interface layouts" />
+                    <span class="course-level">Beginner</span>
+                    <button type="button" class="course-bookmark" aria-label="Save Design systems 101"><i class="bi bi-bookmark" aria-hidden="true"></i></button>
+                  </div>
+                  <div class="course-body">
+                    <div class="course-category">Design</div>
+                    <h3 class="course-title">Design systems 101</h3>
+                    <div class="course-foot">
+                      <span><i class="bi bi-collection-play" aria-hidden="true"></i> 6 lessons</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 1h 05m</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-xl-4">
+                <div class="course-card">
+                  <div class="course-thumb-wrap">
+                    <img class="course-thumb" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=500&q=80" alt="Code editor on a laptop screen" />
+                    <span class="course-level">Intermediate</span>
+                    <button type="button" class="course-bookmark" aria-label="Save API design fundamentals"><i class="bi bi-bookmark" aria-hidden="true"></i></button>
+                  </div>
+                  <div class="course-body">
+                    <div class="course-category">Engineering</div>
+                    <h3 class="course-title">API design fundamentals</h3>
+                    <div class="course-foot">
+                      <span><i class="bi bi-collection-play" aria-hidden="true"></i> 8 lessons</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 1h 40m</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================= SIDE COLUMN ============================= -->
+          <div class="col-lg-4">
+            <section class="panel lh-side-panel" aria-labelledby="progress-title">
+              <div class="panel-head">
+                <h2 id="progress-title">Your progress</h2>
+              </div>
+
+              <div class="lh-progress-ring-wrap">
+                <svg class="lh-progress-ring" width="88" height="88" viewBox="0 0 88 88" role="img" aria-label="42 percent of Learning Hub content completed">
+                  <circle cx="44" cy="44" r="38" fill="none" stroke="var(--surface-raised)" stroke-width="8" />
+                  <circle
+                    class="lh-ring-fill"
+                    cx="44" cy="44" r="38" fill="none"
+                    stroke="var(--ember)" stroke-width="8" stroke-linecap="round"
+                    stroke-dasharray="238.8"
+                    stroke-dashoffset="238.8"
+                    data-offset="138.5"
+                    transform="rotate(-90 44 44)"
+                  />
+                </svg>
+                <div>
+                  <div class="lh-progress-num">42%</div>
+                  <div class="lh-progress-label">of assigned courses completed</div>
+                </div>
+              </div>
+
+              <div class="lh-badge-row" aria-label="Earned badges">
+                <span class="lh-badge" title="First course completed"><i class="bi bi-flag-fill" aria-hidden="true"></i></span>
+                <span class="lh-badge" title="5-day streak"><i class="bi bi-fire" aria-hidden="true"></i></span>
+                <span class="lh-badge" title="Team player"><i class="bi bi-people-fill" aria-hidden="true"></i></span>
+                <span class="lh-badge locked" title="Locked"><i class="bi bi-lock-fill" aria-hidden="true"></i></span>
+                <span class="lh-badge locked" title="Locked"><i class="bi bi-lock-fill" aria-hidden="true"></i></span>
+              </div>
+            </section>
+
+            <section class="panel lh-side-panel mt-4" aria-labelledby="team-progress-title">
+              <div class="panel-head">
+                <h2 id="team-progress-title">Team leaderboard</h2>
+                <a href="#" class="panel-link">View all</a>
+              </div>
+
+              <div class="upcoming-row">
+                <div class="avatar-forge" aria-hidden="true">RT</div>
+                <div>
+                  <div class="upcoming-title">Rhea Thomas</div>
+                  <div class="upcoming-sub">9 courses completed</div>
+                </div>
+              </div>
+              <div class="upcoming-row">
+                <div class="avatar-forge" aria-hidden="true">DK</div>
+                <div>
+                  <div class="upcoming-title">Daniel Kessler</div>
+                  <div class="upcoming-sub">7 courses completed</div>
+                </div>
+              </div>
+              <div class="upcoming-row">
+                <div class="avatar-forge" aria-hidden="true">MA</div>
+                <div>
+                  <div class="upcoming-title">Maya Alvarez (you)</div>
+                  <div class="upcoming-sub">5 courses completed</div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Mobile sidebar (Bootstrap offcanvas — declarative, no custom JS) -->
+  <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel" style="background: var(--ink-soft); width: 264px;">
+    <div class="offcanvas-header border-bottom" style="border-color: var(--border);">
+      <span class="brand-mark" id="mobileSidebarLabel">
+        <span class="glyph" aria-hidden="true"><i class="bi bi-triangle-fill"></i></span>
+        CodeForge&nbsp;Pro
+      </span>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-3">
+      <ul class="sidebar-nav">
+        <li><a href="dashboard.html" class="sidebar-link"><i class="bi bi-grid-1x2" aria-hidden="true"></i> Dashboard</a></li>
+        <li><a href="projects.html" class="sidebar-link"><i class="bi bi-kanban" aria-hidden="true"></i> Projects</a></li>
+        <li><a href="tasks.html" class="sidebar-link"><i class="bi bi-check2-square" aria-hidden="true"></i> Tasks</a></li>
+        <li><a href="calendar.html" class="sidebar-link"><i class="bi bi-calendar3" aria-hidden="true"></i> Calendar</a></li>
+        <li><a href="notes.html" class="sidebar-link"><i class="bi bi-journal-text" aria-hidden="true"></i> Notes</a></li>
+        <li><a href="analytics.html" class="sidebar-link"><i class="bi bi-bar-chart-line" aria-hidden="true"></i> Analytics</a></li>
+        <li><a href="learning-hub.html" class="sidebar-link active"><i class="bi bi-mortarboard" aria-hidden="true"></i> Learning Hub</a></li>
+        <li><a href="settings.html" class="sidebar-link"><i class="bi bi-gear" aria-hidden="true"></i> Settings</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS bundle (offcanvas toggle only — no custom logic) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <!-- UI animation only -->
+  <script src="js/learning-hub-animation.js"></script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+/* ==========================================================================
+   CodeForge Pro — Create Project
+   Extends tokens from css/style.css and reuses the app shell (sidebar,
+   topbar) defined in css/dashboard.css — both loaded before this file.
+   Adds: form layout, stepper, tag/color pickers, live preview card.
+   ========================================================================== */
+
+/* ---------- Page head ---------- */
+.breadcrumb-forge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-faint);
+  margin-bottom: 0.6rem;
+}
+.breadcrumb-forge a { color: var(--text-faint); }
+.breadcrumb-forge a:hover { color: var(--text-muted); }
+.breadcrumb-forge i { font-size: 0.65rem; }
+.breadcrumb-forge .current { color: var(--ember); }
+
+/* ---------- Stepper ---------- */
+.cp-stepper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.cp-step {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.84rem;
+  color: var(--text-faint);
+}
+.cp-step-num {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  flex-shrink: 0;
+}
+.cp-step.active .cp-step-num {
+  background: var(--ember);
+  border-color: var(--ember);
+  color: #fff;
+}
+.cp-step.active { color: var(--text-primary); }
+.cp-step.done .cp-step-num {
+  background: var(--ember-soft);
+  border-color: var(--ember);
+  color: var(--ember);
+}
+.cp-step-connector {
+  width: 34px;
+  height: 1px;
+  background: var(--border-strong);
+  flex-shrink: 0;
+}
+
+/* ---------- Form panel ---------- */
+.cp-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.8rem;
+}
+.cp-panel + .cp-panel { margin-top: 1.4rem; }
+
+.cp-panel-title {
+  font-size: 1.02rem;
+  margin-bottom: 0.3rem;
+}
+.cp-panel-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+/* Reuses .field-label / .field-input / .field-input-wrap from login.css naming
+   convention, redefined here so this file has no dependency on login.css. */
+.cp-field { margin-bottom: 1.2rem; }
+.cp-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  margin-bottom: 0.55rem;
+}
+.cp-hint {
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  margin-top: 0.45rem;
+}
+
+.cp-input,
+.cp-textarea,
+.cp-select {
+  width: 100%;
+  background: var(--surface-raised);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.cp-textarea { resize: vertical; min-height: 96px; }
+.cp-input::placeholder,
+.cp-textarea::placeholder { color: var(--text-faint); }
+
+.cp-input:focus,
+.cp-textarea:focus,
+.cp-select:focus {
+  outline: none;
+  border-color: var(--ember);
+  box-shadow: 0 0 0 3px var(--ember-soft);
+}
+
+.cp-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7l5 5 5-5' stroke='%239aa1ac' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  padding-right: 2.4rem;
+}
+
+.cp-char-count {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  margin-top: 0.35rem;
+}
+
+/* ---------- Priority pills ---------- */
+.cp-pill-group { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.cp-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-raised);
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.cp-pill input { accent-color: var(--ember); margin: 0; }
+.cp-pill.p-high { border-color: rgba(255, 106, 57, 0.4); }
+.cp-pill.p-high .dot { background: var(--ember); }
+.cp-pill.p-mid .dot { background: var(--amber); }
+.cp-pill.p-low .dot { background: var(--steel-light); }
+.cp-pill .dot { width: 7px; height: 7px; border-radius: 50%; }
+
+/* ---------- Color / icon swatches ---------- */
+.cp-swatch-row { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+.cp-swatch {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-size: 0.9rem;
+}
+.cp-swatch.selected { border-color: var(--text-primary); }
+.cp-swatch.sw-ember { background: linear-gradient(135deg, var(--ember), #e6501f); }
+.cp-swatch.sw-amber { background: linear-gradient(135deg, var(--amber), #d98f2c); }
+.cp-swatch.sw-steel { background: linear-gradient(135deg, var(--steel-light), var(--steel)); }
+.cp-swatch.sw-green { background: linear-gradient(135deg, #3fbf7f, #1f8a58); }
+.cp-swatch.sw-violet { background: linear-gradient(135deg, #9d7bff, #6d4de0); }
+
+/* ---------- Team member picker ---------- */
+.cp-team-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.2rem;
+  border-bottom: 1px solid var(--border);
+}
+.cp-team-row:last-child { border-bottom: none; }
+.cp-team-person { display: flex; align-items: center; gap: 0.7rem; }
+.cp-team-name { font-size: 0.88rem; color: var(--text-primary); font-weight: 500; }
+.cp-team-role { font-size: 0.76rem; color: var(--text-faint); }
+.cp-add-btn {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-raised);
+  color: var(--text-muted);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 0.85rem;
+}
+
+/* ---------- Tag input display ---------- */
+.cp-tag-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.7rem;
+  background: var(--surface-raised);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+}
+.cp-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--ember-soft);
+  color: var(--ember);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+}
+.cp-tag button {
+  background: none; border: none; color: inherit;
+  font-size: 0.7rem; padding: 0; line-height: 1;
+}
+.cp-tag-input {
+  flex: 1;
+  min-width: 120px;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 0.86rem;
+}
+.cp-tag-input:focus { outline: none; }
+.cp-tag-input::placeholder { color: var(--text-faint); }
+
+/* ---------- Dropzone (cover image) ---------- */
+.cp-dropzone {
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--text-faint);
+}
+.cp-dropzone i {
+  font-size: 1.6rem;
+  color: var(--ember);
+  margin-bottom: 0.6rem;
+  display: inline-block;
+}
+.cp-dropzone p { font-size: 0.86rem; margin-bottom: 0.2rem; color: var(--text-muted); }
+.cp-dropzone span { font-size: 0.76rem; }
+
+/* ---------- Live preview (sticky sidebar column) ---------- */
+.cp-preview-col { position: sticky; top: 92px; }
+
+.cp-preview-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.cp-preview-banner {
+  height: 84px;
+  background: linear-gradient(135deg, var(--ember), var(--amber));
+  position: relative;
+}
+.cp-preview-icon {
+  position: absolute;
+  bottom: -22px;
+  left: 1.5rem;
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  color: var(--ember);
+  box-shadow: 0 10px 24px -8px rgba(0,0,0,0.5);
+}
+.cp-preview-body { padding: 2rem 1.5rem 1.5rem; }
+.cp-preview-title { font-size: 1.05rem; margin-bottom: 0.3rem; }
+.cp-preview-desc { font-size: 0.84rem; color: var(--text-muted); margin-bottom: 1.2rem; }
+
+.cp-preview-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  padding: 0.55rem 0;
+  border-top: 1px solid var(--border);
+}
+.cp-preview-meta-row span:first-child { color: var(--text-muted); }
+
+.cp-preview-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+
+.cp-preview-note {
+  margin-top: 1.2rem;
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.cp-preview-note i { color: var(--ember); margin-top: 0.1rem; }
+
+/* ---------- Sticky action footer ---------- */
+.cp-actions {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+  padding: 1.1rem 0 0.4rem;
+  margin-top: 1.4rem;
+  background: linear-gradient(180deg, transparent, var(--ink) 30%);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 991.98px) {
+  .cp-preview-col { position: static; margin-top: 1.4rem; }
+  .cp-panel { padding: 1.4rem; }
+}
+
+@media (max-width: 575.98px) {
+  .cp-stepper { gap: 0.4rem; }
+  .cp-step span.label { display: none; }
+  .cp-actions { flex-direction: column-reverse; }
+  .cp-actions .btn-ember,
+  .cp-actions .btn-ghost { width: 100%; text-align: center; }
+}

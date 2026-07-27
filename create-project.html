@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Create Project — CodeForge Pro</title>
+  <meta name="description" content="Create a new project in CodeForge Pro — set the scope, team, timeline, and priority in one place." />
+  <meta name="keywords" content="create project, new project, CodeForge Pro, project setup, team workspace" />
+  <meta name="author" content="CodeForge Pro" />
+  <link rel="canonical" href="https://www.codeforgepro.example/create-project.html" />
+  <meta name="robots" content="noindex, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CodeForge Pro" />
+  <meta property="og:title" content="Create Project — CodeForge Pro" />
+  <meta property="og:description" content="Set the scope, team, timeline, and priority for your next project." />
+  <meta property="og:image" content="https://www.codeforgepro.example/assets/og-cover.jpg" />
+  <meta property="og:url" content="https://www.codeforgepro.example/create-project.html" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Create Project — CodeForge Pro" />
+  <meta name="twitter:description" content="Set the scope, team, timeline, and priority for your next project." />
+  <meta name="twitter:image" content="https://www.codeforgepro.example/assets/og-cover.jpg" />
+
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+  <!-- Favicon (same mark as Home) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0d10'/%3E%3Cpath d='M9 22 L16 8 L23 22' stroke='%23ff6a39' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+  <!-- Shared design system (unmodified) -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- App shell: sidebar / topbar (unmodified, reused from Dashboard) -->
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <!-- Create Project page styles -->
+  <link rel="stylesheet" href="css/create-project.css" />
+</head>
+<body class="app-body">
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+
+    <!-- ============================= SIDEBAR ============================= -->
+    <aside class="app-sidebar" id="appSidebar" aria-label="Primary application navigation">
+      <a class="brand-mark sidebar-brand" href="index.html">
+        <span class="glyph" aria-hidden="true"><i class="bi bi-triangle-fill"></i></span>
+        CodeForge&nbsp;Pro
+      </a>
+
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-label">Workspace</li>
+        <li><a href="dashboard.html" class="sidebar-link"><i class="bi bi-grid-1x2" aria-hidden="true"></i> Dashboard</a></li>
+        <li><a href="projects.html" class="sidebar-link active" aria-current="page"><i class="bi bi-kanban" aria-hidden="true"></i> Projects</a></li>
+        <li><a href="tasks.html" class="sidebar-link"><i class="bi bi-check2-square" aria-hidden="true"></i> Tasks <span class="badge-count">12</span></a></li>
+        <li><a href="calendar.html" class="sidebar-link"><i class="bi bi-calendar3" aria-hidden="true"></i> Calendar</a></li>
+        <li><a href="notes.html" class="sidebar-link"><i class="bi bi-journal-text" aria-hidden="true"></i> Notes</a></li>
+
+        <li class="sidebar-nav-label">Insights</li>
+        <li><a href="analytics.html" class="sidebar-link"><i class="bi bi-bar-chart-line" aria-hidden="true"></i> Analytics</a></li>
+        <li><a href="reports.html" class="sidebar-link"><i class="bi bi-file-earmark-text" aria-hidden="true"></i> Reports</a></li>
+
+        <li class="sidebar-nav-label">Account</li>
+        <li><a href="settings.html" class="sidebar-link"><i class="bi bi-gear" aria-hidden="true"></i> Settings</a></li>
+        <li><a href="help.html" class="sidebar-link"><i class="bi bi-question-circle" aria-hidden="true"></i> Help</a></li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <div class="avatar-forge" aria-hidden="true">MA</div>
+        <div>
+          <div class="sidebar-user-name">Maya Alvarez</div>
+          <div class="sidebar-user-role">Head of Product</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============================= MAIN ============================= -->
+    <div class="app-main">
+
+      <!-- ============================= TOPBAR ============================= -->
+      <header class="app-topbar">
+        <button class="topbar-icon-btn d-lg-none" type="button" aria-label="Toggle sidebar" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar">
+          <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
+
+        <div class="topbar-search">
+          <i class="bi bi-search" aria-hidden="true"></i>
+          <input type="search" placeholder="Search projects, tasks, notes…" aria-label="Search" />
+        </div>
+
+        <div class="d-flex align-items-center gap-2 ms-auto">
+          <button class="topbar-icon-btn" type="button" aria-label="Notifications">
+            <i class="bi bi-bell" aria-hidden="true"></i>
+            <span class="ping" aria-hidden="true"></span>
+          </button>
+          <a href="settings.html" class="topbar-icon-btn" aria-label="Account settings">
+            <i class="bi bi-gear" aria-hidden="true"></i>
+          </a>
+          <div class="avatar-forge d-none d-sm-flex" aria-hidden="true">MA</div>
+        </div>
+      </header>
+
+      <!-- ============================= CONTENT ============================= -->
+      <main id="main-content" class="app-content">
+
+        <nav class="breadcrumb-forge" aria-label="Breadcrumb">
+          <a href="dashboard.html">Dashboard</a>
+          <i class="bi bi-chevron-right" aria-hidden="true"></i>
+          <a href="projects.html">Projects</a>
+          <i class="bi bi-chevron-right" aria-hidden="true"></i>
+          <span class="current">New project</span>
+        </nav>
+
+        <div class="content-head">
+          <div>
+            <h1>Create a new project</h1>
+            <div class="temper-line" aria-hidden="true"></div>
+            <p class="text-muted-custom mb-0">Set the scope, team, and timeline — you can refine everything later.</p>
+          </div>
+        </div>
+
+        <!-- Stepper -->
+        <div class="cp-stepper" role="list" aria-label="Project creation steps">
+          <div class="cp-step done" role="listitem">
+            <span class="cp-step-num"><i class="bi bi-check2" aria-hidden="true"></i></span>
+            <span class="label">Details</span>
+          </div>
+          <div class="cp-step-connector" aria-hidden="true"></div>
+          <div class="cp-step active" role="listitem">
+            <span class="cp-step-num">2</span>
+            <span class="label">Team &amp; timeline</span>
+          </div>
+          <div class="cp-step-connector" aria-hidden="true"></div>
+          <div class="cp-step" role="listitem">
+            <span class="cp-step-num">3</span>
+            <span class="label">Review</span>
+          </div>
+        </div>
+
+        <form action="#" method="post" novalidate>
+          <div class="row g-4">
+
+            <!-- ============================= FORM COLUMN ============================= -->
+            <div class="col-lg-8">
+
+              <!-- Project details -->
+              <section class="cp-panel" aria-labelledby="details-title">
+                <h2 class="cp-panel-title" id="details-title">Project details</h2>
+                <p class="cp-panel-sub">Give your team a clear name and a short summary of what you're building.</p>
+
+                <div class="cp-field">
+                  <label class="cp-label" for="projectName">Project name</label>
+                  <input class="cp-input" type="text" id="projectName" name="projectName" placeholder="e.g. Billing migration" />
+                </div>
+
+                <div class="cp-field">
+                  <label class="cp-label" for="projectDesc">Description</label>
+                  <textarea class="cp-textarea" id="projectDesc" name="projectDesc" placeholder="What is this project about, and what does done look like?"></textarea>
+                  <div class="cp-char-count">0 / 280</div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-sm-6">
+                    <div class="cp-field mb-0">
+                      <label class="cp-label" for="projectWorkspace">Workspace</label>
+                      <select class="cp-select" id="projectWorkspace" name="projectWorkspace">
+                        <option>Product</option>
+                        <option>Engineering</option>
+                        <option>Design</option>
+                        <option>Marketing</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="cp-field mb-0">
+                      <label class="cp-label" for="projectVisibility">Visibility</label>
+                      <select class="cp-select" id="projectVisibility" name="projectVisibility">
+                        <option>Team — everyone in the workspace</option>
+                        <option>Private — invite only</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Priority & color -->
+              <section class="cp-panel" aria-labelledby="priority-title">
+                <h2 class="cp-panel-title" id="priority-title">Priority &amp; identity</h2>
+                <p class="cp-panel-sub">Choose how urgent this project is and give it a color to spot it at a glance.</p>
+
+                <div class="cp-field">
+                  <span class="cp-label" id="priorityLabel">Priority</span>
+                  <div class="cp-pill-group" role="radiogroup" aria-labelledby="priorityLabel">
+                    <label class="cp-pill p-high">
+                      <input type="radio" name="priority" value="high" checked />
+                      <span class="dot" aria-hidden="true"></span> High
+                    </label>
+                    <label class="cp-pill p-mid">
+                      <input type="radio" name="priority" value="medium" />
+                      <span class="dot" aria-hidden="true"></span> Medium
+                    </label>
+                    <label class="cp-pill p-low">
+                      <input type="radio" name="priority" value="low" />
+                      <span class="dot" aria-hidden="true"></span> Low
+                    </label>
+                  </div>
+                </div>
+
+                <div class="cp-field mb-0">
+                  <span class="cp-label" id="colorLabel">Project color</span>
+                  <div class="cp-swatch-row" role="radiogroup" aria-labelledby="colorLabel">
+                    <button type="button" class="cp-swatch sw-ember selected" aria-label="Ember" aria-pressed="true"></button>
+                    <button type="button" class="cp-swatch sw-amber" aria-label="Amber" aria-pressed="false"></button>
+                    <button type="button" class="cp-swatch sw-violet" aria-label="Violet" aria-pressed="false"></button>
+                    <button type="button" class="cp-swatch sw-green" aria-label="Green" aria-pressed="false"></button>
+                    <button type="button" class="cp-swatch sw-steel" aria-label="Steel" aria-pressed="false"></button>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Timeline -->
+              <section class="cp-panel" aria-labelledby="timeline-title">
+                <h2 class="cp-panel-title" id="timeline-title">Timeline</h2>
+                <p class="cp-panel-sub">Set a start and target date — you can adjust milestones later.</p>
+
+                <div class="row g-3">
+                  <div class="col-sm-6">
+                    <div class="cp-field mb-0">
+                      <label class="cp-label" for="startDate">Start date</label>
+                      <input class="cp-input" type="date" id="startDate" name="startDate" />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="cp-field mb-0">
+                      <label class="cp-label" for="dueDate">Target date</label>
+                      <input class="cp-input" type="date" id="dueDate" name="dueDate" />
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Team -->
+              <section class="cp-panel" aria-labelledby="team-title">
+                <div class="panel-head" style="margin-bottom: 0.4rem;">
+                  <h2 class="cp-panel-title" id="team-title" style="margin-bottom:0;">Team</h2>
+                  <button type="button" class="panel-link border-0 bg-transparent">+ Add member</button>
+                </div>
+                <p class="cp-panel-sub">Invite the people who'll be doing the work.</p>
+
+                <div class="cp-team-row">
+                  <div class="cp-team-person">
+                    <div class="avatar-forge" aria-hidden="true">MA</div>
+                    <div>
+                      <div class="cp-team-name">Maya Alvarez</div>
+                      <div class="cp-team-role">Owner</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="cp-team-row">
+                  <div class="cp-team-person">
+                    <div class="avatar-forge" aria-hidden="true">DK</div>
+                    <div>
+                      <div class="cp-team-name">Daniel Kessler</div>
+                      <div class="cp-team-role">Engineering Lead</div>
+                    </div>
+                  </div>
+                  <button type="button" class="cp-add-btn" aria-label="Remove Daniel Kessler"><i class="bi bi-x" aria-hidden="true"></i></button>
+                </div>
+                <div class="cp-team-row">
+                  <div class="cp-team-person">
+                    <div class="avatar-forge" aria-hidden="true">RT</div>
+                    <div>
+                      <div class="cp-team-name">Rhea Thomas</div>
+                      <div class="cp-team-role">Ops</div>
+                    </div>
+                  </div>
+                  <button type="button" class="cp-add-btn" aria-label="Remove Rhea Thomas"><i class="bi bi-x" aria-hidden="true"></i></button>
+                </div>
+              </section>
+
+              <!-- Tags & cover -->
+              <section class="cp-panel" aria-labelledby="tags-title">
+                <h2 class="cp-panel-title" id="tags-title">Tags &amp; cover image</h2>
+                <p class="cp-panel-sub">Optional — helps the project surface in search and filters.</p>
+
+                <div class="cp-field">
+                  <label class="cp-label" for="tagInput">Tags</label>
+                  <div class="cp-tag-wrap">
+                    <span class="cp-tag">billing <button type="button" aria-label="Remove tag billing"><i class="bi bi-x" aria-hidden="true"></i></button></span>
+                    <span class="cp-tag">q3 <button type="button" aria-label="Remove tag q3"><i class="bi bi-x" aria-hidden="true"></i></button></span>
+                    <input class="cp-tag-input" type="text" id="tagInput" placeholder="Add a tag…" />
+                  </div>
+                </div>
+
+                <div class="cp-field mb-0">
+                  <label class="cp-label" for="coverUpload">Cover image</label>
+                  <div class="cp-dropzone">
+                    <i class="bi bi-cloud-arrow-up" aria-hidden="true"></i>
+                    <p>Drag and drop an image, or browse</p>
+                    <span>PNG or JPG, up to 5MB</span>
+                    <input type="file" id="coverUpload" name="coverUpload" class="visually-hidden" accept="image/*" />
+                  </div>
+                </div>
+              </section>
+
+              <div class="cp-actions">
+                <a href="projects.html" class="btn-ghost">Cancel</a>
+                <button type="submit" class="btn-ember">Create project</button>
+              </div>
+            </div>
+
+            <!-- ============================= PREVIEW COLUMN ============================= -->
+            <div class="col-lg-4">
+              <div class="cp-preview-col">
+                <div class="cp-preview-card">
+                  <div class="cp-preview-banner">
+                    <div class="cp-preview-icon"><i class="bi bi-kanban" aria-hidden="true"></i></div>
+                  </div>
+                  <div class="cp-preview-body">
+                    <h3 class="cp-preview-title">Billing migration</h3>
+                    <p class="cp-preview-desc">Move billing infrastructure to the new provider with zero downtime.</p>
+
+                    <div class="cp-preview-meta-row">
+                      <span>Priority</span>
+                      <span class="tag high">High</span>
+                    </div>
+                    <div class="cp-preview-meta-row">
+                      <span>Workspace</span>
+                      <span>Product</span>
+                    </div>
+                    <div class="cp-preview-meta-row">
+                      <span>Target date</span>
+                      <span>Sep 30, 2026</span>
+                    </div>
+                    <div class="cp-preview-meta-row">
+                      <span>Team</span>
+                      <span class="avatar-stack">
+                        <span class="avatar-forge" aria-hidden="true">MA</span>
+                        <span class="avatar-forge" aria-hidden="true">DK</span>
+                        <span class="avatar-forge" aria-hidden="true">RT</span>
+                      </span>
+                    </div>
+
+                    <div class="cp-preview-tags">
+                      <span class="cp-tag">billing</span>
+                      <span class="cp-tag">q3</span>
+                    </div>
+
+                    <div class="cp-preview-note">
+                      <i class="bi bi-info-circle" aria-hidden="true"></i>
+                      <span>This is a live preview of how your project card will look on the Projects board.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <!-- Mobile sidebar (Bootstrap offcanvas — declarative, no custom JS) -->
+  <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel" style="background: var(--ink-soft); width: 264px;">
+    <div class="offcanvas-header border-bottom" style="border-color: var(--border);">
+      <span class="brand-mark" id="mobileSidebarLabel">
+        <span class="glyph" aria-hidden="true"><i class="bi bi-triangle-fill"></i></span>
+        CodeForge&nbsp;Pro
+      </span>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-3">
+      <ul class="sidebar-nav">
+        <li><a href="dashboard.html" class="sidebar-link"><i class="bi bi-grid-1x2" aria-hidden="true"></i> Dashboard</a></li>
+        <li><a href="projects.html" class="sidebar-link active"><i class="bi bi-kanban" aria-hidden="true"></i> Projects</a></li>
+        <li><a href="tasks.html" class="sidebar-link"><i class="bi bi-check2-square" aria-hidden="true"></i> Tasks</a></li>
+        <li><a href="calendar.html" class="sidebar-link"><i class="bi bi-calendar3" aria-hidden="true"></i> Calendar</a></li>
+        <li><a href="notes.html" class="sidebar-link"><i class="bi bi-journal-text" aria-hidden="true"></i> Notes</a></li>
+        <li><a href="analytics.html" class="sidebar-link"><i class="bi bi-bar-chart-line" aria-hidden="true"></i> Analytics</a></li>
+        <li><a href="settings.html" class="sidebar-link"><i class="bi bi-gear" aria-hidden="true"></i> Settings</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS bundle (offcanvas toggle only — no custom logic) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <!-- UI animation only -->
+  <script src="js/create-project-animation.js"></script>
+</body>
+</html>

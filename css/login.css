@@ -1,0 +1,308 @@
+/* ==========================================================================
+   CodeForge Pro — Login page
+   Extends tokens defined in css/style.css (loaded before this file).
+   Split-screen layout: visual/brand panel + auth form panel.
+   ========================================================================== */
+
+.auth-shell {
+  min-height: 100vh;
+  display: flex;
+}
+
+/* ---------- Left: visual / brand panel ---------- */
+.auth-visual {
+  position: relative;
+  flex: 1 1 54%;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background-color: var(--ink);
+}
+
+.auth-visual-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+}
+
+.auth-visual-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(11, 13, 16, 0.55) 0%, rgba(11, 13, 16, 0.75) 55%, var(--ink) 100%),
+    radial-gradient(600px circle at 15% 15%, rgba(255, 106, 57, 0.28), transparent 55%);
+}
+
+/* Optional Spline 3D layer — decorative, sits above the image, below content.
+   Drop a real scene export URL into the spline-viewer `url` attribute to
+   activate it; the panel looks complete with the image + glass card alone
+   if no scene is supplied. */
+.auth-spline-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.9;
+}
+.auth-spline-layer spline-viewer {
+  width: 100%;
+  height: 100%;
+}
+
+.auth-visual-content {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 3.2rem 3.4rem;
+  width: 100%;
+}
+
+.auth-brand {
+  position: absolute;
+  top: 2.4rem;
+  left: 3.2rem;
+  z-index: 2;
+}
+
+.auth-glass-card {
+  background: rgba(21, 24, 29, 0.55);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border-radius: var(--radius-lg);
+  padding: 1.9rem 2.1rem;
+  max-width: 460px;
+}
+
+.auth-glass-card h2 {
+  font-size: 1.55rem;
+  margin-bottom: 0.2rem;
+}
+
+.auth-quote {
+  margin-top: 1.6rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--border);
+}
+.auth-quote p {
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  margin-bottom: 0.9rem;
+}
+
+/* ---------- Right: form panel ---------- */
+.auth-form-panel {
+  flex: 1 1 46%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--ink);
+  padding: 2.5rem;
+  position: relative;
+}
+
+.auth-form-topbar {
+  position: absolute;
+  top: 2rem;
+  right: 2.5rem;
+  left: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.auth-form-wrap {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.auth-form-wrap .eyebrow { margin-bottom: 0.4rem; }
+
+.auth-form-wrap h1 {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+}
+
+.auth-form-sub {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 2.1rem;
+}
+
+/* Form fields — consistent with the forge surface / border language */
+.field-group {
+  margin-bottom: 1.15rem;
+}
+
+.field-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  margin-bottom: 0.5rem;
+}
+
+.field-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.field-input-wrap i {
+  position: absolute;
+  left: 0.95rem;
+  color: var(--text-faint);
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+
+.field-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  padding: 0.72rem 0.95rem 0.72rem 2.6rem;
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.field-input::placeholder { color: var(--text-faint); }
+
+.field-input:focus {
+  outline: none;
+  border-color: var(--ember);
+  background: var(--surface-raised);
+  box-shadow: 0 0 0 3px var(--ember-soft);
+}
+
+.field-toggle-visibility {
+  position: absolute;
+  right: 0.9rem;
+  color: var(--text-faint);
+  font-size: 0.95rem;
+  background: none;
+  border: none;
+  padding: 0.2rem;
+  cursor: pointer;
+}
+.field-toggle-visibility:hover { color: var(--text-muted); }
+
+.field-row-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.2rem 0 1.6rem;
+}
+
+.remember-check {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+.remember-check input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--ember);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+}
+
+.link-ember {
+  color: var(--ember);
+  font-size: 0.86rem;
+  font-weight: 500;
+}
+.link-ember:hover { color: var(--amber); }
+
+.btn-ember-block {
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 1.7rem 0;
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.auth-social-row {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.btn-social {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 0.65rem 0.8rem;
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.btn-social:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-raised);
+  color: var(--text-primary);
+}
+
+.auth-footnote {
+  text-align: center;
+  margin-top: 1.9rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 991.98px) {
+  .auth-shell { flex-direction: column; }
+  .auth-visual {
+    min-height: 40vh;
+    flex: none;
+  }
+  .auth-form-panel {
+    min-height: auto;
+    flex: none;
+    padding: 3rem 1.5rem 3.5rem;
+  }
+  .auth-brand { top: 1.5rem; left: 1.6rem; }
+  .auth-visual-content { padding: 2rem 1.6rem 2.2rem; }
+  .auth-glass-card { max-width: 100%; }
+  .auth-form-topbar { position: static; margin-bottom: 2rem; }
+}
+
+@media (max-width: 575.98px) {
+  .auth-visual { min-height: 32vh; }
+  .auth-glass-card { padding: 1.4rem 1.5rem; }
+  .auth-form-wrap h1 { font-size: 1.7rem; }
+}

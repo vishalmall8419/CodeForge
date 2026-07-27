@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Projects — CodeForge Pro</title>
+  <meta name="description" content="Every project in your CodeForge Pro workspace, grouped and tracked in one place." />
+  <meta name="author" content="CodeForge Pro" />
+  <link rel="canonical" href="https://www.codeforgepro.example/projects.html" />
+
+  <!-- App pages are kept out of the index -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0d10'/%3E%3Cpath d='M9 22 L16 8 L23 22' stroke='%23ff6a39' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Projects page styles -->
+  <link rel="stylesheet" href="css/projects.css" />
+</head>
+<body class="app-body">
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+
+    <!-- ============================= SIDEBAR ============================= -->
+    <aside class="sidebar-forge offcanvas-lg offcanvas-start" tabindex="-1" id="sidebarForge" aria-labelledby="sidebarForgeLabel">
+      <div class="sidebar-head">
+        <a class="brand-mark" href="index.html">
+          <span class="glyph" aria-hidden="true"><i class="bi bi-triangle-fill"></i></span>
+          CodeForge&nbsp;Pro
+        </a>
+        <button type="button" class="btn-close btn-close-white d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#sidebarForge" aria-label="Close sidebar"></button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Workspace">
+        <p class="sidebar-nav-label">Workspace</p>
+        <a class="sidebar-link" href="dashboard.html">
+          <i class="bi bi-grid-1x2" aria-hidden="true"></i> Dashboard
+        </a>
+        <a class="sidebar-link active" href="projects.html" aria-current="page">
+          <i class="bi bi-kanban" aria-hidden="true"></i> Projects
+        </a>
+        <a class="sidebar-link" href="tasks.html">
+          <i class="bi bi-check2-square" aria-hidden="true"></i> Tasks
+        </a>
+        <a class="sidebar-link" href="calendar.html">
+          <i class="bi bi-calendar3" aria-hidden="true"></i> Calendar
+        </a>
+        <a class="sidebar-link" href="notes.html">
+          <i class="bi bi-journal-text" aria-hidden="true"></i> Notes
+        </a>
+        <a class="sidebar-link" href="analytics.html">
+          <i class="bi bi-bar-chart-line" aria-hidden="true"></i> Analytics
+        </a>
+
+        <p class="sidebar-nav-label">Learn &amp; grow</p>
+        <a class="sidebar-link" href="learning-hub.html">
+          <i class="bi bi-mortarboard" aria-hidden="true"></i> Learning Hub
+        </a>
+        <a class="sidebar-link" href="resources.html">
+          <i class="bi bi-life-preserver" aria-hidden="true"></i> Resources
+        </a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <a class="sidebar-link" href="help.html">
+          <i class="bi bi-question-circle" aria-hidden="true"></i> Help Center
+        </a>
+        <div class="sidebar-user">
+          <div class="avatar-forge" aria-hidden="true">JD</div>
+          <div class="sidebar-user-meta">
+            <span class="sidebar-user-name">Jordan Diaz</span>
+            <span class="sidebar-user-role">Northwind Labs</span>
+          </div>
+          <a href="login.html" class="sidebar-logout" aria-label="Log out">
+            <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============================= APP MAIN ============================= -->
+    <div class="app-main">
+
+      <!-- ============================= TOPBAR ============================= -->
+      <header class="topbar-forge">
+        <button class="sidebar-toggle-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarForge" aria-controls="sidebarForge" aria-label="Toggle sidebar">
+          <i class="bi bi-list fs-3" aria-hidden="true"></i>
+        </button>
+
+        <div class="topbar-search">
+          <i class="bi bi-search" aria-hidden="true"></i>
+          <input type="search" placeholder="Search projects, tasks, notes…" aria-label="Search workspace" />
+          <span class="topbar-kbd">⌘K</span>
+        </div>
+
+        <div class="topbar-actions">
+          <button type="button" class="topbar-icon-btn" aria-label="Notifications">
+            <i class="bi bi-bell" aria-hidden="true"></i>
+            <span class="topbar-dot" aria-hidden="true"></span>
+          </button>
+          <a href="register.html" class="btn-ember topbar-cta">
+            <i class="bi bi-plus-lg me-1" aria-hidden="true"></i> New project
+          </a>
+          <div class="avatar-forge topbar-avatar" aria-hidden="true">JD</div>
+        </div>
+      </header>
+
+      <main id="main-content" class="app-content">
+
+        <!-- ============================= HEADING ============================= -->
+        <div class="content-head">
+          <p class="eyebrow dash-eyebrow">18 total</p>
+          <h1 class="dash-heading">Projects</h1>
+          <div class="temper-line dash-temper" aria-hidden="true"></div>
+          <p class="dash-sub">Every project your team is planning, building, or has shipped — grouped in one place.</p>
+        </div>
+
+        <!-- ============================= TOOLBAR ============================= -->
+        <div class="projects-toolbar">
+          <div class="filter-chips" role="tablist" aria-label="Filter projects by status">
+            <button type="button" class="filter-chip active" role="tab" aria-selected="true" data-filter="all">All projects</button>
+            <button type="button" class="filter-chip" role="tab" aria-selected="false" data-filter="active">Active</button>
+            <button type="button" class="filter-chip" role="tab" aria-selected="false" data-filter="backlog">Backlog</button>
+            <button type="button" class="filter-chip" role="tab" aria-selected="false" data-filter="shipped">Shipped</button>
+            <button type="button" class="filter-chip" role="tab" aria-selected="false" data-filter="archived">Archived</button>
+          </div>
+
+          <div class="toolbar-right">
+            <label class="visually-hidden" for="sortProjects">Sort projects</label>
+            <select id="sortProjects" class="sort-select-forge">
+              <option>Recently updated</option>
+              <option>Name (A–Z)</option>
+              <option>Priority</option>
+              <option>Due date</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- ============================= PROJECT GRID ============================= -->
+        <div class="row g-4 project-grid" role="list" aria-label="Project list">
+
+          <div class="col-md-6 col-xl-4" role="listitem">
+            <a href="dashboard.html" class="project-card">
+              <div class="project-card-head">
+                <span class="project-card-icon"><i class="bi bi-folder2" aria-hidden="true"></i></span>
+                <span class="tag high">High</span>
+              </div>
+              <h3>Billing migration</h3>
+              <p>Move subscription billing onto the new metered-usage engine.</p>
+              <div class="project-progress">
+                <span class="progress-track"><span class="progress-fill" style="width: 68%;"></span></span>
+                <span class="progress-pct">68%</span>
+              </div>
+              <div class="project-card-foot">
+                <div class="avatar-stack" aria-hidden="true">
+                  <span class="avatar-forge sm">MA</span>
+                  <span class="avatar-forge sm">DK</span>
+                </div>
+                <span class="project-card-meta"><i class="bi bi-check2-square" aria-hidden="true"></i> 14 tasks</span>
+                <span class="project-card-meta"><i class="bi bi-calendar3" aria-hidden="true"></i> Jul 18</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-6 col-xl-4" role="listitem">
+            <a href="dashboard.html" class="project-card">
+              <div class="project-card-head">
+                <span class="project-card-icon"><i class="bi bi-folder2" aria-hidden="true"></i></span>
+                <span class="tag mid">Medium</span>
+              </div>
+              <h3>Onboarding v2</h3>
+              <p>Redesigned first-run experience with guided setup checklists.</p>
+              <div class="project-progress">
+                <span class="progress-track"><span class="progress-fill" style="width: 41%;"></span></span>
+                <span class="progress-pct">41%</span>
+              </div>
+              <div class="project-card-foot">
+                <div class="avatar-stack" aria-hidden="true">
+                  <span class="avatar-forge sm">RT</span>
+                  <span class="avatar-forge sm">JD</span>
+                  <span class="avatar-forge sm">MA</span>
+                </div>
+                <span class="project-card-meta"><i class="bi bi-check2-square" aria-hidden="true"></i> 22 tasks</span>
+                <span class="project-card-meta"><i class="bi bi-calendar3" aria-hidden="true"></i> Jul 25</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-6 col-xl-4" role="listitem">
+            <a href="dashboard.html" class="project-card">
+              <div class="project-card-head">
+                <span class="project-card-icon"><i class="bi bi-folder2" aria-hidden="true"></i></span>
+                <span class="tag low">Queued</span>
+              </div>
+              <h3>Notifications center</h3>
+              <p>Unified in-app and email notification preferences for teams.</p>
+              <div class="project-progress">
+                <span class="progress-track"><span class="progress-fill" style="width: 12%;"></span></span>
+                <span class="progress-pct">12%</span>
+              </div>
+              <div class="project-card-foot">
+                <div class="avatar-stack" aria-hidden="true">
+                  <span class="avatar-forge sm">DK</span>
+                </div>
+                <span class="project-card-meta"><i class="bi bi-check2-square" aria-hidden="true"></i> 9 tasks</span>
+                <span class="project-card-meta"><i class="bi bi-calendar3" aria-hidden="true"></i> Aug 2</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-6 col-xl-4" role="listitem">
+            <a href="dashboard.html" class="project-card">
+              <div class="project-card-head">
+                <span class="project-card-icon"><i class="bi bi-folder2" aria-hidden="true"></i></span>
+                <span class="tag mid">Medium</span>
+              </div>
+              <h3>Mobile nav revamp</h3>
+              <p>Simplify the mobile information architecture across five screens.</p>
+              <div class="project-progress">
+                <span class="progress-track"><span class="progress-fill" style="width: 55%;"></span></span>
+                <span class="progress-pct">55%</span>
+              </div>
+              <div class="project-card-foot">
+                <div class="avatar-stack" aria-hidden="true">
+                  <span class="avatar-forge sm">RT</span>
+                  <span class="avatar-forge sm">MA</span>
+                </div>
+                <span class="project-card-meta"><i class="bi bi-check2-square" aria-hidden="true"></i> 17 tasks</span>
+                <span class="project-card-meta"><i class="bi bi-calendar3" aria-hidden="true"></i> Jul 30</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-6 col-xl-4" role="listitem">
+            <a href="dashboard.html" class="project-card">
+              <div class="project-card-head">
+                <span class="project-card-icon"><i class="bi bi-folder2-open" aria-hidden="true"></i></span>
+                <span class="tag low">Done</span>
+              </div>
+              <h3>Team invites v2</h3>
+              <p>Bulk invites with role presets and pending-invite management.</p>
+              <div class="project-progress">
+                <span class="progress-track"><span class="progress-fill" style="width: 100%;"></span></span>
+                <span class="progress-pct">100%</span>
+              </div>
+              <div class="project-card-foot">
+                <div class="avatar-stack" aria-hidden="true">
+                  <span class="avatar-forge sm">JD</span>
+                </div>
+                <span class="project-card-meta"><i class="bi bi-check2-square" aria-hidden="true"></i> 11 tasks</span>
+                <span class="project-card-meta"><i class="bi bi-calendar3" aria-hidden="true"></i> Shipped</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-6 col-xl-4" role="listitem">
+            <a href="dashboard.html" class="project-card">
+              <div class="project-card-head">
+                <span class="project-card-icon"><i class="bi bi-folder2-open" aria-hidden="true"></i></span>
+                <span class="tag low">Done</span>
+              </div>
+              <h3>Dark mode</h3>
+              <p>System-wide theme tokens with per-workspace override support.</p>
+              <div class="project-progress">
+                <span class="progress-track"><span class="progress-fill" style="width: 100%;"></span></span>
+                <span class="progress-pct">100%</span>
+              </div>
+              <div class="project-card-foot">
+                <div class="avatar-stack" aria-hidden="true">
+                  <span class="avatar-forge sm">DK</span>
+                  <span class="avatar-forge sm">RT</span>
+                </div>
+                <span class="project-card-meta"><i class="bi bi-check2-square" aria-hidden="true"></i> 8 tasks</span>
+                <span class="project-card-meta"><i class="bi bi-calendar3" aria-hidden="true"></i> Shipped</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-6 col-xl-4" role="listitem">
+            <a href="dashboard.html" class="project-card">
+              <div class="project-card-head">
+                <span class="project-card-icon"><i class="bi bi-folder2" aria-hidden="true"></i></span>
+                <span class="tag high">High</span>
+              </div>
+              <h3>API rate limiting</h3>
+              <p>Per-key throttling with clearer error responses for integrators.</p>
+              <div class="project-progress">
+                <span class="progress-track"><span class="progress-fill" style="width: 84%;"></span></span>
+                <span class="progress-pct">84%</span>
+              </div>
+              <div class="project-card-foot">
+                <div class="avatar-stack" aria-hidden="true">
+                  <span class="avatar-forge sm">MA</span>
+                </div>
+                <span class="project-card-meta"><i class="bi bi-check2-square" aria-hidden="true"></i> 19 tasks</span>
+                <span class="project-card-meta"><i class="bi bi-calendar3" aria-hidden="true"></i> Jul 20</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-6 col-xl-4" role="listitem">
+            <a href="dashboard.html" class="project-card">
+              <div class="project-card-head">
+                <span class="project-card-icon"><i class="bi bi-folder2" aria-hidden="true"></i></span>
+                <span class="tag low">Backlog</span>
+              </div>
+              <h3>Redesign settings page</h3>
+              <p>Consolidate account, billing, and security settings into one view.</p>
+              <div class="project-progress">
+                <span class="progress-track"><span class="progress-fill" style="width: 6%;"></span></span>
+                <span class="progress-pct">6%</span>
+              </div>
+              <div class="project-card-foot">
+                <div class="avatar-stack" aria-hidden="true">
+                  <span class="avatar-forge sm">JD</span>
+                </div>
+                <span class="project-card-meta"><i class="bi bi-check2-square" aria-hidden="true"></i> 6 tasks</span>
+                <span class="project-card-meta"><i class="bi bi-calendar3" aria-hidden="true"></i> Unscheduled</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-6 col-xl-4" role="listitem">
+            <a href="dashboard.html" class="project-card">
+              <div class="project-card-head">
+                <span class="project-card-icon"><i class="bi bi-folder2" aria-hidden="true"></i></span>
+                <span class="tag low">Backlog</span>
+              </div>
+              <h3>Export to CSV</h3>
+              <p>Let teams export tasks and reports for offline sharing.</p>
+              <div class="project-progress">
+                <span class="progress-track"><span class="progress-fill" style="width: 3%;"></span></span>
+                <span class="progress-pct">3%</span>
+              </div>
+              <div class="project-card-foot">
+                <div class="avatar-stack" aria-hidden="true">
+                  <span class="avatar-forge sm">RT</span>
+                </div>
+                <span class="project-card-meta"><i class="bi bi-check2-square" aria-hidden="true"></i> 4 tasks</span>
+                <span class="project-card-meta"><i class="bi bi-calendar3" aria-hidden="true"></i> Unscheduled</span>
+              </div>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="load-more-row">
+          <button type="button" class="btn-ghost">Load more projects</button>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS bundle (needed for offcanvas sidebar UI only) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <!-- Projects page animation -->
+  <script src="js/projects-animation.js"></script>
+</body>
+</html>

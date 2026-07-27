@@ -1,0 +1,246 @@
+/* ==========================================================================
+   CodeForge Pro — Learning Hub
+   Extends tokens from css/style.css and reuses the app shell (sidebar,
+   topbar, panel, tag, avatar classes) from css/dashboard.css — both loaded
+   before this file. Adds: category tabs, featured banner, course cards.
+   ========================================================================== */
+
+/* ---------- Category tabs ---------- */
+.lh-tabs {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.8rem;
+}
+.lh-tab {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+}
+.lh-tab:hover { color: var(--text-primary); border-color: var(--border-strong); }
+.lh-tab.active {
+  background: var(--ember-soft);
+  border-color: rgba(255, 106, 57, 0.4);
+  color: var(--ember);
+}
+
+/* ---------- Featured course banner ---------- */
+.lh-featured {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 2.2rem;
+  min-height: 260px;
+  display: flex;
+  align-items: flex-end;
+}
+.lh-featured-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+.lh-featured-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(11, 13, 16, 0.95) 15%, rgba(11, 13, 16, 0.55) 60%, rgba(11, 13, 16, 0.2) 100%),
+    linear-gradient(0deg, rgba(11, 13, 16, 0.7), transparent 50%);
+}
+.lh-featured-body {
+  position: relative;
+  z-index: 2;
+  padding: 2.2rem 2.4rem;
+  max-width: 560px;
+}
+.lh-featured-body .eyebrow { margin-bottom: 0.5rem; }
+.lh-featured-body h2 { font-size: 1.7rem; margin-bottom: 0.6rem; }
+.lh-featured-body p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.4rem; }
+
+.lh-featured-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-faint);
+}
+.lh-featured-meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+/* ---------- Continue learning strip ---------- */
+.continue-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+}
+.continue-thumb {
+  width: 52px; height: 52px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.continue-body { flex: 1; min-width: 0; }
+.continue-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.continue-progress-track {
+  height: 4px;
+  border-radius: 4px;
+  background: var(--surface-raised);
+  overflow: hidden;
+  margin-bottom: 0.35rem;
+}
+.continue-progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--ember), var(--amber));
+}
+.continue-pct {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-faint);
+}
+.continue-play {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--ember-soft);
+  color: var(--ember);
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+}
+
+/* ---------- Course grid ---------- */
+.course-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  height: 100%;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.course-card:hover {
+  border-color: rgba(255, 106, 57, 0.35);
+  transform: translateY(-3px);
+}
+
+.course-thumb-wrap { position: relative; }
+.course-thumb {
+  width: 100%;
+  height: 148px;
+  object-fit: cover;
+  display: block;
+}
+.course-level {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.22rem 0.55rem;
+  border-radius: 5px;
+  background: rgba(11, 13, 16, 0.72);
+  backdrop-filter: blur(4px);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+.course-bookmark {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: rgba(11, 13, 16, 0.72);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 0.85rem;
+}
+
+.course-body { padding: 1.1rem 1.2rem 1.3rem; }
+.course-category {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ember);
+  margin-bottom: 0.5rem;
+}
+.course-title {
+  font-size: 0.98rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.35;
+}
+.course-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  margin-top: 0.9rem;
+}
+.course-foot span { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+/* ---------- Progress summary panel ---------- */
+.lh-progress-ring-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+}
+.lh-progress-ring { flex-shrink: 0; }
+.lh-progress-num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.lh-progress-label { font-size: 0.82rem; color: var(--text-muted); }
+
+.lh-badge-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 1.3rem;
+}
+.lh-badge {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--amber);
+  font-size: 1.1rem;
+}
+.lh-badge.locked { color: var(--text-faint); opacity: 0.5; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 991.98px) {
+  .lh-featured { min-height: 220px; }
+  .lh-featured-body { padding: 1.6rem 1.6rem; }
+}
+
+@media (max-width: 575.98px) {
+  .lh-featured-body h2 { font-size: 1.35rem; }
+  .lh-featured-meta { flex-wrap: wrap; gap: 0.7rem; }
+}
